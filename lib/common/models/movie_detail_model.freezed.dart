@@ -37,7 +37,7 @@ mixin _$MovieDetailModel {
   @JsonKey(name: 'original_title')
   String? get originalTitle => throw _privateConstructorUsedError;
   String? get overview => throw _privateConstructorUsedError;
-  String? get popularity => throw _privateConstructorUsedError;
+  double? get popularity => throw _privateConstructorUsedError;
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'production_company')
@@ -90,7 +90,7 @@ abstract class $MovieDetailModelCopyWith<$Res> {
       @JsonKey(name: 'original_title')
           String? originalTitle,
       String? overview,
-      String? popularity,
+      double? popularity,
       @JsonKey(name: 'poster_path')
           String? posterPath,
       @JsonKey(name: 'production_company')
@@ -200,7 +200,7 @@ class _$MovieDetailModelCopyWithImpl<$Res>
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       posterPath: posterPath == freezed
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -293,7 +293,7 @@ abstract class _$$_MovieDetailModelCopyWith<$Res>
       @JsonKey(name: 'original_title')
           String? originalTitle,
       String? overview,
-      String? popularity,
+      double? popularity,
       @JsonKey(name: 'poster_path')
           String? posterPath,
       @JsonKey(name: 'production_company')
@@ -406,7 +406,7 @@ class __$$_MovieDetailModelCopyWithImpl<$Res>
       popularity: popularity == freezed
           ? _value.popularity
           : popularity // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       posterPath: posterPath == freezed
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
@@ -547,7 +547,7 @@ class _$_MovieDetailModel implements _MovieDetailModel {
   @override
   final String? overview;
   @override
-  final String? popularity;
+  final double? popularity;
   @override
   @JsonKey(name: 'poster_path')
   final String? posterPath;
@@ -713,7 +713,7 @@ abstract class _MovieDetailModel implements MovieDetailModel {
       @JsonKey(name: 'original_title')
           final String? originalTitle,
       final String? overview,
-      final String? popularity,
+      final double? popularity,
       @JsonKey(name: 'poster_path')
           final String? posterPath,
       @JsonKey(name: 'production_company')
@@ -766,7 +766,7 @@ abstract class _MovieDetailModel implements MovieDetailModel {
   @override
   String? get overview;
   @override
-  String? get popularity;
+  double? get popularity;
   @override
   @JsonKey(name: 'poster_path')
   String? get posterPath;

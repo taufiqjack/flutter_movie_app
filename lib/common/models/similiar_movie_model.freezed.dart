@@ -22,7 +22,7 @@ SimilarMovieModel _$SimilarMovieModelFromJson(Map<String, dynamic> json) {
 mixin _$SimilarMovieModel {
   int? get page => throw _privateConstructorUsedError;
   List<Result>? get results => throw _privateConstructorUsedError;
-  @JsonKey(name: 'total_pages')
+  @JsonKey(name: 'total_pages', nullable: true)
   int? get totalPages => throw _privateConstructorUsedError;
   @JsonKey(name: 'total_results')
   int? get totalResults => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $SimilarMovieModelCopyWith<$Res> {
   $Res call(
       {int? page,
       List<Result>? results,
-      @JsonKey(name: 'total_pages') int? totalPages,
+      @JsonKey(name: 'total_pages', nullable: true) int? totalPages,
       @JsonKey(name: 'total_results') int? totalResults});
 }
 
@@ -92,7 +92,7 @@ abstract class _$$_SimilarMovieModelCopyWith<$Res>
   $Res call(
       {int? page,
       List<Result>? results,
-      @JsonKey(name: 'total_pages') int? totalPages,
+      @JsonKey(name: 'total_pages', nullable: true) int? totalPages,
       @JsonKey(name: 'total_results') int? totalResults});
 }
 
@@ -141,7 +141,7 @@ class _$_SimilarMovieModel implements _SimilarMovieModel {
   const _$_SimilarMovieModel(
       {this.page,
       final List<Result>? results,
-      @JsonKey(name: 'total_pages') this.totalPages,
+      @JsonKey(name: 'total_pages', nullable: true) this.totalPages,
       @JsonKey(name: 'total_results') this.totalResults})
       : _results = results;
 
@@ -160,7 +160,7 @@ class _$_SimilarMovieModel implements _SimilarMovieModel {
   }
 
   @override
-  @JsonKey(name: 'total_pages')
+  @JsonKey(name: 'total_pages', nullable: true)
   final int? totalPages;
   @override
   @JsonKey(name: 'total_results')
@@ -211,7 +211,7 @@ abstract class _SimilarMovieModel implements SimilarMovieModel {
   const factory _SimilarMovieModel(
           {final int? page,
           final List<Result>? results,
-          @JsonKey(name: 'total_pages') final int? totalPages,
+          @JsonKey(name: 'total_pages', nullable: true) final int? totalPages,
           @JsonKey(name: 'total_results') final int? totalResults}) =
       _$_SimilarMovieModel;
 
@@ -223,7 +223,7 @@ abstract class _SimilarMovieModel implements SimilarMovieModel {
   @override
   List<Result>? get results;
   @override
-  @JsonKey(name: 'total_pages')
+  @JsonKey(name: 'total_pages', nullable: true)
   int? get totalPages;
   @override
   @JsonKey(name: 'total_results')

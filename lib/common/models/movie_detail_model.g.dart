@@ -24,8 +24,9 @@ _$_MovieDetailModel _$$_MovieDetailModelFromJson(Map<String, dynamic> json) =>
       originalLanguage: json['original_language'] as String?,
       originalTitle: json['original_title'] as String?,
       overview: json['overview'] as String?,
-      popularity: json['popularity'] as String?,
+      popularity: (json['popularity'] as num?)?.toDouble(),
       posterPath: json['poster_path'] as String?,
+      
       productionCompany: (json['production_company'] as List<dynamic>?)
           ?.map((e) => ProductionCompany.fromJson(e as Map<String, dynamic>))
           .toList(),

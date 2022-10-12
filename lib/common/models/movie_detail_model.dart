@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'movie_detail_model.freezed.dart';
 part 'movie_detail_model.g.dart';
@@ -17,7 +19,7 @@ class MovieDetailModel with _$MovieDetailModel {
     @JsonKey(name: 'original_language') String? originalLanguage,
     @JsonKey(name: 'original_title') String? originalTitle,
     String? overview,
-    String? popularity,
+    double? popularity,
     @JsonKey(name: 'poster_path') String? posterPath,
     @JsonKey(name: 'production_company')
         List<ProductionCompany>? productionCompany,

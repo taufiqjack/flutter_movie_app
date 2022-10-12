@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/core/views/dashboard_view.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark));
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -25,9 +30,11 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.inter().fontFamily,
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      home: const DashboardView(),
+      initialRoute: '/splash',
+      getPages: Routes.route,
     );
   }
 }
