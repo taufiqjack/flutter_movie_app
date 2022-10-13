@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/views/home_view.dart';
 import 'package:flutter_movie_app/core/views/search_view.dart';
 import 'package:flutter_movie_app/core/views/watch_list_view.dart';
+import 'package:get/get.dart';
 
 class IndexView extends StatefulWidget {
   const IndexView({super.key});
@@ -29,11 +31,14 @@ class _IndexViewState extends State<IndexView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: pageList[selectedIndex],
+      body: WillPopScope(
+        onWillPop: exitApp,
+        child: Center(
+          child: pageList[selectedIndex],
+        ),
       ),
       bottomNavigationBar: PreferredSize(
-        preferredSize: Size.fromHeight(10),
+        preferredSize: const Size.fromHeight(10),
         child: Container(
           decoration:
               BoxDecoration(border: Border(top: BorderSide(color: blue))),
@@ -56,5 +61,31 @@ class _IndexViewState extends State<IndexView> {
         ),
       ),
     );
+  }
+
+  Future<bool> exitApp() async {
+    return await showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              title: const Text("Keluar"),
+              content:
+                  const Text('Apa anda yakin ingin keluar\ndari aplikasi ini?'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  child: const Text('Cancel'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    SystemNavigator.pop();
+                  },
+                  child: const Text('OK'),
+                )
+              ],
+            ));
   }
 }
