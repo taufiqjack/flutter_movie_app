@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/common/constans/custom_color.dart';
 
 class WatchListView extends StatefulWidget {
   const WatchListView({super.key});
@@ -10,9 +11,13 @@ class WatchListView extends StatefulWidget {
 class _WatchListViewState extends State<WatchListView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: bluetwo,
       body: Center(
-        child: Text('WatchListView'),
+        child: Text(
+          'WatchListView',
+          style: TextStyle(color: white),
+        ),
       ),
     );
   }

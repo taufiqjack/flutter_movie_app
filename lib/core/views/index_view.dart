@@ -32,17 +32,28 @@ class _IndexViewState extends State<IndexView> {
       body: Center(
         child: pageList[selectedIndex],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.label_important_outline_sharp),
-              label: 'Watch list'),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: blue,
-        onTap: onItemTapped,
+      bottomNavigationBar: PreferredSize(
+        preferredSize: Size.fromHeight(10),
+        child: Container(
+          decoration:
+              BoxDecoration(border: Border(top: BorderSide(color: blue))),
+          child: BottomNavigationBar(
+            backgroundColor: bluetwo,
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.search), label: 'Search'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.label_important_outline_sharp),
+                  label: 'Watch list'),
+            ],
+            currentIndex: selectedIndex,
+            selectedItemColor: blue,
+            unselectedItemColor: white,
+            onTap: onItemTapped,
+            elevation: 0.0,
+          ),
+        ),
       ),
     );
   }
