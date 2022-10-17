@@ -179,21 +179,27 @@ class _HomeViewState extends State<HomeView> {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(16)),
-                                  child: CachedNetworkImage(
-                                    imageUrl:
-                                        '${Api().image}${popular.posterPath}',
-                                    placeholder: (context, url) {
-                                      return SkeletonAnimation(
-                                        child: Container(
-                                          height: 60,
-                                          width: 50,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              color: grey),
-                                        ),
-                                      );
+                                  child: InkWell(
+                                    onTap: () {
+                                      Get.toNamed('/details',
+                                          arguments: {'id': popular.id});
                                     },
+                                    child: CachedNetworkImage(
+                                      imageUrl:
+                                          '${Api().image}${popular.posterPath}',
+                                      placeholder: (context, url) {
+                                        return SkeletonAnimation(
+                                          child: Container(
+                                            height: 60,
+                                            width: 50,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(16),
+                                                color: grey),
+                                          ),
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                               );
