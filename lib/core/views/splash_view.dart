@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       duration,
       () {
-        Get.toNamed('/');
+        context.go('/index');
       },
     );
     super.initState();

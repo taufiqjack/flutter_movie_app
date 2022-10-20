@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/views/detail_movie_view.dart';
 import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
 import 'package:flutter_movie_app/riverpod/provider/data_load.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
 class HomeView extends ConsumerWidget {
@@ -68,8 +70,9 @@ class HomeView extends ConsumerWidget {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    Get.toNamed('/details',
-                                        arguments: {'id': popular.id});
+                                    // Get.toNamed('/details',
+                                    //     arguments: {'id': popular.id});
+                                    context.go('/home/${popular.id}');
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 10),
@@ -172,8 +175,15 @@ class HomeView extends ConsumerWidget {
                                     borderRadius: BorderRadius.circular(16)),
                                 child: InkWell(
                                   onTap: () {
-                                    Get.toNamed('/details',
-                                        arguments: {'id': popular.id});
+                                    context.goNamed('/home/details/',
+                                        queryParams: {'id': popular.id});
+                                    // Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             DetailMovieView(
+                                    //               id: popular.id,
+                                    //             )));
                                   },
                                   child: CachedNetworkImage(
                                     imageUrl:

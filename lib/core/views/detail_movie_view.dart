@@ -7,12 +7,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 
 class DetailMovieView extends ConsumerWidget {
-  const DetailMovieView({super.key});
+  const DetailMovieView({super.key, this.id});
+  final int? id;
 
   @override
   Widget build(BuildContext context, ref) {
     final details = ref.watch(homeFuture);
-    details.getDetailMovie(Get.arguments['id']);
+    details.getDetailMovie(id);
     return Scaffold(
       backgroundColor: bluetwo,
       appBar: AppBar(
