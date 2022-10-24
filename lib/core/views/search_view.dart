@@ -65,7 +65,7 @@ class _SearchViewState extends State<SearchView> {
                 height: MediaQuery.of(context).size.height / 4,
               ),
               searchController.text.isEmpty
-                  ? SizedBox()
+                  ? const SizedBox()
                   : Column(
                       children: [
                         SvgPicture.asset('assets/images/search_icon.svg'),

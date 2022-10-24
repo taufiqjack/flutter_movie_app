@@ -4,8 +4,6 @@ import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/views/home_view.dart';
 import 'package:flutter_movie_app/core/views/search_view.dart';
 import 'package:flutter_movie_app/core/views/watch_list_view.dart';
-import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
 
 class IndexView extends StatefulWidget {
   const IndexView({super.key});
