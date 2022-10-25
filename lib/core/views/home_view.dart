@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -30,7 +31,7 @@ class HomeView extends ConsumerWidget {
                 children: [
                   Text(
                     'What do you want to watch?',
-                    style: TextStyle(color: white, fontSize: 16),
+                    style: TextStyles.searchText,
                   ),
                   const SizedBox(height: 15),
                   SizedBox(
@@ -40,7 +41,7 @@ class HomeView extends ConsumerWidget {
                           fillColor: grey,
                           filled: true,
                           hintText: 'Search',
-                          hintStyle: TextStyle(color: white),
+                          hintStyle: TextStyles.title,
                           suffixIcon: InkWell(
                             child: Icon(
                               Icons.search,
@@ -106,24 +107,11 @@ class HomeView extends ConsumerWidget {
                                     alignment: Alignment.bottomRight,
                                     child: Stack(
                                       children: [
+                                        Text('${index + 1}',
+                                            style: TextStyles.numberDecoration),
                                         Text(
                                           '${index + 1}',
-                                          style: TextStyle(
-                                            fontSize: 75,
-                                            fontWeight: FontWeight.w700,
-                                            foreground: Paint()
-                                              ..strokeWidth = 3
-                                              ..color = blue
-                                              ..style = PaintingStyle.stroke,
-                                          ),
-                                        ),
-                                        Text(
-                                          '${index + 1}',
-                                          style: TextStyle(
-                                            color: bluetwo,
-                                            fontSize: 75,
-                                            fontWeight: FontWeight.w700,
-                                          ),
+                                          style: TextStyles.number,
                                         ),
                                       ],
                                     ),
@@ -139,19 +127,19 @@ class HomeView extends ConsumerWidget {
                     children: [
                       Text(
                         'Now Playing',
-                        style: TextStyle(color: white),
+                        style: TextStyles.title,
                       ),
                       Text(
                         'Upcoming',
-                        style: TextStyle(color: white),
+                        style: TextStyles.title,
                       ),
                       Text(
                         'Top rated',
-                        style: TextStyle(color: white),
+                        style: TextStyles.title,
                       ),
                       Text(
                         'Popular',
-                        style: TextStyle(color: white),
+                        style: TextStyles.title,
                       ),
                     ],
                   ),

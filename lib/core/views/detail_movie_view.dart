@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -15,6 +16,7 @@ class DetailMovieView extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final details = ref.watch(homeFuture);
     details.getDetailMovie(id);
+
     return Scaffold(
       backgroundColor: bluetwo,
       appBar: AppBar(
@@ -122,7 +124,7 @@ class DetailMovieView extends ConsumerWidget {
                                 Icon(Icons.star_border, color: orange),
                                 Text(
                                   '${details.movieDetail!.voteAverage!}',
-                                  style: TextStyle(fontSize: 12, color: orange),
+                                  style: TextStyles.rating,
                                 )
                               ],
                             ),
@@ -137,25 +139,22 @@ class DetailMovieView extends ConsumerWidget {
                       children: [
                         Text(
                           '${details.movieDetail!.originalTitle}',
-                          style: TextStyle(
-                              color: white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 18),
+                          style: TextStyles.detailTitle,
                         ),
                         Center(
                           child: Row(
                             children: [
                               Text(
                                 '2022 | ',
-                                style: TextStyle(color: white),
+                                style: TextStyles.title,
                               ),
                               Text(
                                 '148 minutes | ',
-                                style: TextStyle(color: white),
+                                style: TextStyles.title,
                               ),
                               Text(
                                 'Action',
-                                style: TextStyle(color: white),
+                                style: TextStyles.title,
                               ),
                             ],
                           ),
@@ -174,15 +173,15 @@ class DetailMovieView extends ConsumerWidget {
                       children: [
                         Text(
                           'About Movie',
-                          style: TextStyle(color: white),
+                          style: TextStyles.title,
                         ),
                         Text(
                           'Review',
-                          style: TextStyle(color: white),
+                          style: TextStyles.title,
                         ),
                         Text(
                           'Cast',
-                          style: TextStyle(color: white),
+                          style: TextStyles.title,
                         ),
                       ],
                     ),
@@ -195,7 +194,7 @@ class DetailMovieView extends ConsumerWidget {
                     ),
                     child: Text(
                       '${details.movieDetail!.overview}',
-                      style: TextStyle(color: white),
+                      style: TextStyles.title,
                     ),
                   ),
                 ],
