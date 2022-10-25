@@ -29,37 +29,51 @@ class _IndexViewState extends State<IndexView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: WillPopScope(
-        onWillPop: exitApp,
-        child: Center(
-          child: pageList[selectedIndex],
-        ),
-      ),
-      bottomNavigationBar: PreferredSize(
-        preferredSize: const Size.fromHeight(10),
-        child: Container(
-          decoration:
-              BoxDecoration(border: Border(top: BorderSide(color: blue))),
-          child: BottomNavigationBar(
-            backgroundColor: bluetwo,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Search'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.label_important_outline_sharp),
-                  label: 'Watch list'),
-            ],
-            currentIndex: selectedIndex,
-            selectedItemColor: blue,
-            unselectedItemColor: white,
-            onTap: onItemTapped,
-            elevation: 0.0,
+    return OrientationBuilder(builder: (context, orientation) {
+      if (orientation != Orientation.landscape) {
+        return Scaffold(
+          body: WillPopScope(
+            onWillPop: exitApp,
+            child: Center(
+              child: pageList[selectedIndex],
+            ),
           ),
-        ),
-      ),
-    );
+          bottomNavigationBar: PreferredSize(
+            preferredSize: const Size.fromHeight(10),
+            child: Container(
+              decoration:
+                  BoxDecoration(border: Border(top: BorderSide(color: blue))),
+              child: BottomNavigationBar(
+                backgroundColor: bluetwo,
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.menu), label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.search), label: 'Search'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.label_important_outline_sharp),
+                      label: 'Watch list'),
+                ],
+                currentIndex: selectedIndex,
+                selectedItemColor: blue,
+                unselectedItemColor: white,
+                onTap: onItemTapped,
+                elevation: 0.0,
+              ),
+            ),
+          ),
+        );
+      } else {
+        return Scaffold(
+          body: WillPopScope(
+            onWillPop: exitApp,
+            child: Center(
+              child: pageList[selectedIndex],
+            ),
+          ),
+        );
+      }
+    });
   }
 
   Future<bool> exitApp() async {

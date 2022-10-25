@@ -17,9 +17,11 @@ class HomeView extends ConsumerWidget {
     return Scaffold(
       backgroundColor: bluetwo,
       body: RefreshIndicator(
-        onRefresh: () => Future.delayed(const Duration(seconds: 2), () {
-          ref.refresh(homeFuture);
-        }),
+        onRefresh: () async {
+          await Future.delayed(const Duration(seconds: 2), () {
+            ref.refresh(homeFuture);
+          });
+        },
         child: SingleChildScrollView(
           child: Padding(
               padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
