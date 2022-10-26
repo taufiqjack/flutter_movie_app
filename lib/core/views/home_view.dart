@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
+import 'package:flutter_movie_app/core/views/pdf_view.dart';
 import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +17,14 @@ class HomeView extends ConsumerWidget {
     final home = ref.watch(homeFuture);
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final file = await PdfView.generateCenteredText(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nTincidunt id proin volutpat lobortis semper at.Enim fringilla et, mi urna ullamcorper.\nMattis dignissim nisi augue ullamcorper varius. Adipiscing elit euismod risus scelerisque pretium tempus. Et a, sapien, feugiat posuere lacus curabitur. Vitae non, dignissim consequat odio faucibus feugiat. Habitasse urna bibendum adipiscing eu velit vitae viverra. Ac a felis a at commodo pellentesque. Blandit massa elementum lectus augue sit.\nSapien quis malesuada id leo. Massa urna, eu morbi imperdiet. Consectetur tincidunt sit leo proin euismod vel nibh praesent commodo. Molestie id ornare quam augue nec. Mi ullamcorper quam nunc tincidunt diam congue parturient. Lorem faucibus malesuada mauris malesuada suspendisse volutpat condimentum. Molestie massa, dignissim eget sed. Turpis rhoncus magna adipiscing orci fermentum, iaculis dignissim lectus. At amet odio consectetur quis consequat. Rutrum velit ornare sit aliquet leo in pharetra, quisque. Vulputate vel egestas viverra mi, mauris gravida urna, tellus. Sapien laoreet odio lobortis quam. Ac amet, mi tellus massa vitae sit. Ut velit malesuada fusce nibh sagittis ullamcorper eu risus. Ultricies nisi ultrices ac ut euismod feugiat scelerisque. Adipiscing egestas non quis laoreet et habitasse ullamcorper faucibus. Consequat turpis metus, sed viverra mus tempus nisi, etiam. Est augue sed enim malesuada. Habitasse in id est et, velit. Semper a tellus ultricies metus, non. Maecenas nec aliquet sapien nunc augue pellentesque tristique risus, scelerisque. Odio vulputate massa fringilla posuere et, urna. Tristique amet, bibendum posuere sit tristique vestibulum quis cursus aliquam. At eget nec aliquam, dignissim tincidunt vitae amet, sed dignissim. Facilisis ullamcorper et quam.');
+          PdfView.openFile(file);
+        },
+        child: const Icon(Icons.picture_as_pdf),
+      ),
       backgroundColor: bluetwo,
       body: RefreshIndicator(
         onRefresh: () async {

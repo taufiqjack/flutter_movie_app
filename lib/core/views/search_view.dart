@@ -13,7 +13,7 @@ class SearchView extends StatefulWidget {
 class _SearchViewState extends State<SearchView> {
   TextEditingController searchController = TextEditingController();
   String? videoId;
-  String link = 'https://www.youtube.com/watch?v=QDv4sTXdI2w';
+  String link = 'https://www.youtube.com/watch?v=E_1bZM5_ga8';
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +59,25 @@ class _SearchViewState extends State<SearchView> {
                           filled: true,
                           hintText: 'Search',
                           hintStyle: TextStyle(color: white),
-                          suffixIcon: InkWell(
-                            child: Icon(
-                              Icons.search,
-                              color: white,
-                            ),
-                          ),
+                          suffixIcon: searchController.text.isNotEmpty
+                              ? InkWell(
+                                  onTap: () {
+                                    setState(() {
+                                      searchController.clear();
+                                    });
+                                  },
+                                  child: Icon(
+                                    Icons.cancel,
+                                    color: white,
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {},
+                                  child: Icon(
+                                    Icons.search,
+                                    color: white,
+                                  ),
+                                ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: grey),
                             borderRadius: const BorderRadius.all(

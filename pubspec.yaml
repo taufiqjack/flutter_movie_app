@@ -51,6 +51,9 @@ dependencies:
   flutter_riverpod: ^2.0.2
   go_router: ^5.1.1
   youtube_player_flutter: ^8.1.1
+  pdf: ^3.8.4
+  path_provider: ^2.0.11
+  open_filex: ^4.2.2
 
 dev_dependencies:
   flutter_test:
