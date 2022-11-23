@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: non_constant_identifier_names
-
 part of 'movie_detail_model.dart';
 
 // **************************************************************************
@@ -28,7 +26,6 @@ _$_MovieDetailModel _$$_MovieDetailModelFromJson(Map<String, dynamic> json) =>
       overview: json['overview'] as String?,
       popularity: (json['popularity'] as num?)?.toDouble(),
       posterPath: json['poster_path'] as String?,
-      
       productionCompany: (json['production_company'] as List<dynamic>?)
           ?.map((e) => ProductionCompany.fromJson(e as Map<String, dynamic>))
           .toList(),

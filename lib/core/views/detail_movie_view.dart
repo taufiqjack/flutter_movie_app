@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
+import 'package:flutter_movie_app/riverpod/provider/data_load.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,7 @@ class DetailMovieView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final details = ref.watch(homeFuture);
+    final state = ref.read(isAsync.notifier);
     details.getDetailMovie(id);
 
     return Scaffold(
@@ -34,8 +36,11 @@ class DetailMovieView extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(right: 10),
             child: InkWell(
-              onTap: () {},
-              child: const Icon(Icons.bookmark),
+              onTap: () {
+                state.onSaved();
+              },
+              child:
+                  Icon(state.onSave ? Icons.bookmark : Icons.bookmark_border),
             ),
           ),
         ],
@@ -56,7 +61,7 @@ class DetailMovieView extends ConsumerWidget {
                       },
                       child: const Text('OK'),
                     ),
-                    TextButton(
+                    TextButton( 
                       onPressed: () {
                         Navigator.of(context).pop();
                       },

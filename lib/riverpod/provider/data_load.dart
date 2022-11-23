@@ -8,4 +8,10 @@ class DataLoad extends StateNotifier<bool> {
   DataLoad() : super(false);
 
   void load() => state;
+
+  bool onSave = false;
+
+  onSaved() async {
+    onSave = !onSave;
+  }
 }
