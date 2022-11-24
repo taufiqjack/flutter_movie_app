@@ -5,5 +5,5 @@ class Api {
   String moviedetail = 'http://api.themoviedb.org/3/movie/';
   String similiar = '/similar?';
   String apikey = '9c9576f8c2e86949a3220fcc32ae2fb6';
-  String search = '/3/search/movie';
+  String search = '/3/search/movie/';
 }

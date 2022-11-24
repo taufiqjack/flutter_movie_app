@@ -20,7 +20,7 @@ class HomeView extends ConsumerWidget {
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(seconds: 2), () {
-            ref.refresh(homeFuture);
+            home;
           });
         },
         child: SingleChildScrollView(
