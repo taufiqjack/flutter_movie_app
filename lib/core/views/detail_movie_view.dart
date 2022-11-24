@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_launcher_icons/xml_templates.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/common/utils/embed_uri.dart';
@@ -28,69 +27,69 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
     final state = ref.read(isAsync.notifier);
     details.getDetailMovie(widget.id);
     details.getCast(widget.id);
+    PageController pageController = PageController();
 
     return Scaffold(
-      backgroundColor: bluetwo,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('Detail'),
-        // leading: InkWell(
-        //   onTap: () {
-        //     Navigator.of(context, rootNavigator: false).pop();
-        //   },
-        //   child: const Icon(Icons.arrow_back_ios),
-        // ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: InkWell(
-              onTap: () {
-                state.onSaved();
-              },
-              child:
-                  Icon(state.onSave ? Icons.bookmark : Icons.bookmark_border),
-            ),
-          ),
-        ],
-      ),
-      body:
-          // WillPopScope(
-          //   onWillPop: () async {
-          //     return await showDialog(
-          //         context: context,
-          //         builder: ((context) {
-          //           return AlertDialog(
-          //             shape: RoundedRectangleBorder(
-          //                 borderRadius: BorderRadius.circular(10)),
-          //             content: const Text('Do you want to exit this apps?'),
-          //             actions: [
-          //               TextButton(
-          //                 onPressed: () {
-          //                   SystemNavigator.pop();
-          //                 },
-          //                 child: const Text('OK'),
-          //               ),
-          //               TextButton(
-          //                 onPressed: () {
-          //                   Navigator.of(context).pop();
-          //                 },
-          //                 child: const Text(
-          //                   'Cancel',
-          //                 ),
-          //               ),
-          //             ],
-          //           );
-          //         }));
+        backgroundColor: bluetwo,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: const Text('Detail'),
+          // leading: InkWell(
+          //   onTap: () {
+          //     Navigator.of(context, rootNavigator: false).pop();
           //   },
-          // child:
-          details.movieDetail == null
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Stack(
-                  children: [
+          //   child: const Icon(Icons.arrow_back_ios),
+          // ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: InkWell(
+                onTap: () {
+                  state.onSaved();
+                },
+                child:
+                    Icon(state.onSave ? Icons.bookmark : Icons.bookmark_border),
+              ),
+            ),
+          ],
+        ),
+        body:
+            // WillPopScope(
+            //   onWillPop: () async {
+            //     return await showDialog(
+            //         context: context,
+            //         builder: ((context) {
+            //           return AlertDialog(
+            //             shape: RoundedRectangleBorder(
+            //                 borderRadius: BorderRadius.circular(10)),
+            //             content: const Text('Do you want to exit this apps?'),
+            //             actions: [
+            //               TextButton(
+            //                 onPressed: () {
+            //                   SystemNavigator.pop();
+            //                 },
+            //                 child: const Text('OK'),
+            //               ),
+            //               TextButton(
+            //                 onPressed: () {
+            //                   Navigator.of(context).pop();
+            //                 },
+            //                 child: const Text(
+            //                   'Cancel',
+            //                 ),
+            //               ),
+            //             ],
+            //           );
+            //         }));
+            //   },
+            // child:
+            details.movieDetail == null
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Stack(children: [
                     Padding(
                       padding: const EdgeInsets.only(top: 10),
                       child: Stack(
@@ -187,37 +186,59 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
                         top: MediaQuery.of(context).size.height / 2.5,
                       ),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           InkWell(
                             onTap: () {
                               selected = 1;
                               setState(() {});
+                              pageController.animateToPage(0,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
                             },
-                            child: Text(
-                              'About Movie',
-                              style: TextStyles.title,
-                            ),
+                            child: selected == 1
+                                ? Container(
+                                    height: 30,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: grey),
+                                    child: Center(
+                                        child: Text(
+                                      'About Movie',
+                                      style: TextStyle(color: white),
+                                    )),
+                                  )
+                                : Text(
+                                    'About Movie',
+                                    style: TextStyles.title,
+                                  ),
                           ),
                           InkWell(
                             onTap: () {
                               selected = 2;
                               setState(() {});
+                              pageController.animateToPage(2,
+                                  duration: const Duration(milliseconds: 500),
+                                  curve: Curves.easeIn);
                             },
-                            child: Text(
-                              'Review',
-                              style: TextStyles.title,
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              selected = 3;
-                              setState(() {});
-                            },
-                            child: Text(
-                              'Cast',
-                              style: TextStyles.title,
-                            ),
+                            child: selected == 2
+                                ? Container(
+                                    height: 30,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: grey),
+                                    child: Center(
+                                        child: Text(
+                                      'Cast',
+                                      style: TextStyle(color: white),
+                                    )),
+                                  )
+                                : Text(
+                                    'Cast',
+                                    style: TextStyles.title,
+                                  ),
                           ),
                         ],
                       ),
@@ -228,29 +249,39 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
                         right: 10,
                         top: MediaQuery.of(context).size.height / 2.3,
                       ),
-                      child: selected == 1
-                          ? Text(
-                              '${details.movieDetail!.overview}',
-                              style: TextStyles.title,
-                            )
-                          : selected == 2
-                              ? const SizedBox()
-                              : SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height / 2,
-                                  child: GridView.builder(
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 3),
-                                    itemCount: details.castMovie!.cast!.length,
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index) {
-                                      var casting =
-                                          details.castMovie!.cast![index];
-                                      return Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 0),
-                                        child: Card(
+                      child: PageView.builder(
+                          controller: pageController,
+                          itemCount: 2,
+                          onPageChanged: (value) {
+                            selected = value + 1;
+                            setState(() {});
+                          },
+                          itemBuilder: (context, index) {
+                            return selected == 1
+                                ? Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 0, top: 10, right: 20),
+                                    child: Text(
+                                      '${details.movieDetail!.overview}',
+                                      style: TextStyles.title,
+                                    ),
+                                  )
+                                : SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height / 2,
+                                    child: GridView.builder(
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 3),
+                                      itemCount:
+                                          details.castMovie!.cast!.length,
+                                      shrinkWrap: true,
+                                      itemBuilder: (context, index) {
+                                        var casting =
+                                            details.castMovie!.cast![index];
+                                        return Card(
+                                          margin: const EdgeInsets.only(
+                                              top: 10, left: 20, right: 20),
                                           color: Colors.transparent,
                                           elevation: 0,
                                           child: Column(
@@ -303,7 +334,7 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
                                                                       .circular(
                                                                           50),
                                                               color: grey),
-                                                          child: Center(
+                                                          child: const Center(
                                                             child: Text(
                                                                 'No image'),
                                                           ),
@@ -329,14 +360,12 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
                                               ),
                                             ],
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                    ),
-                  ],
-                ),
-    );
+                                        );
+                                      },
+                                    ),
+                                  );
+                          }),
+                    )
+                  ]));
   }
 }
