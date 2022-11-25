@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_movie_app/common/routes/route.dart';
-import 'package:get/get.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.dark,
         statusBarColor: Colors.transparent));
-    return GetMaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -34,8 +34,9 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.inter().fontFamily,
       ),
       // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: '/splash',
-      getPages: Routes.route,
+      // initialRoute: '/splash',
+      // getPages: Routes.route,
+      routerConfig: router,
     );
   }
 }

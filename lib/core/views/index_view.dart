@@ -4,7 +4,6 @@ import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/views/home_view.dart';
 import 'package:flutter_movie_app/core/views/search_view.dart';
 import 'package:flutter_movie_app/core/views/watch_list_view.dart';
-import 'package:get/get.dart';
 
 class IndexView extends StatefulWidget {
   const IndexView({super.key});
@@ -30,37 +29,51 @@ class _IndexViewState extends State<IndexView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: WillPopScope(
-        onWillPop: exitApp,
-        child: Center(
-          child: pageList[selectedIndex],
-        ),
-      ),
-      bottomNavigationBar: PreferredSize(
-        preferredSize: const Size.fromHeight(10),
-        child: Container(
-          decoration:
-              BoxDecoration(border: Border(top: BorderSide(color: blue))),
-          child: BottomNavigationBar(
-            backgroundColor: bluetwo,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Search'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.label_important_outline_sharp),
-                  label: 'Watch list'),
-            ],
-            currentIndex: selectedIndex,
-            selectedItemColor: blue,
-            unselectedItemColor: white,
-            onTap: onItemTapped,
-            elevation: 0.0,
+    return OrientationBuilder(builder: (context, orientation) {
+      if (orientation != Orientation.landscape) {
+        return Scaffold(
+          body: WillPopScope(
+            onWillPop: exitApp,
+            child: Center(
+              child: pageList[selectedIndex],
+            ),
           ),
-        ),
-      ),
-    );
+          bottomNavigationBar: PreferredSize(
+            preferredSize: const Size.fromHeight(10),
+            child: Container(
+              decoration:
+                  BoxDecoration(border: Border(top: BorderSide(color: blue))),
+              child: BottomNavigationBar(
+                backgroundColor: bluetwo,
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.menu), label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.search), label: 'Search'),
+                  BottomNavigationBarItem(
+                      icon: Icon(Icons.label_important_outline_sharp),
+                      label: 'Watch list'),
+                ],
+                currentIndex: selectedIndex,
+                selectedItemColor: blue,
+                unselectedItemColor: white,
+                onTap: onItemTapped,
+                elevation: 0.0,
+              ),
+            ),
+          ),
+        );
+      } else {
+        return Scaffold(
+          body: WillPopScope(
+            onWillPop: exitApp,
+            child: Center(
+              child: pageList[selectedIndex],
+            ),
+          ),
+        );
+      }
+    });
   }
 
   Future<bool> exitApp() async {
@@ -75,7 +88,7 @@ class _IndexViewState extends State<IndexView> {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Get.back();
+                    Navigator.pop(context);
                   },
                   child: const Text('Cancel'),
                 ),
