@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
-import 'package:flutter_movie_app/riverpod/controllers/home_controller.dart';
+import 'package:flutter_movie_app/common/riverpod/controllers/home_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';

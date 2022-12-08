@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_movie_app/common/routes/route.dart';
+import 'package:flutter_movie_app/common/services/http_override_cert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  HttpOverrides.global = HttpOverriderCert();
   runApp(const ProviderScope(child: MyApp()));
 }
 
