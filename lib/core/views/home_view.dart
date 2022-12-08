@@ -29,7 +29,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
       body: RefreshIndicator(
         onRefresh: () async {
           await Future.delayed(const Duration(seconds: 2), () {
-            home;
+            return ref.refresh(homeFuture);
           });
         },
         child: SingleChildScrollView(
@@ -66,7 +66,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  home.popularMovie == null || home.isAsync
+                  home.isAsync
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
@@ -84,7 +84,8 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                     onTap: () {
                                       // Get.toNamed('/details',
                                       //     arguments: {'id': popular.id});
-                                      context.go('/home/${popular.id}');
+                                      context.go('/index/${popular.id}');
+                                      // context.go('/tes');
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(left: 10),
@@ -240,7 +241,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     ],
                   ),
                   const SizedBox(height: 5),
-                  home.popularMovie == null || home.isAsync
+                  home.isAsync
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
@@ -275,7 +276,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                             child: InkWell(
                                               onTap: () {
                                                 context
-                                                    .go('/home/${popular.id}');
+                                                    .go('/index/${popular.id}');
 
                                                 // Navigator.push(
                                                 //     context,
@@ -329,7 +330,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                                 child: InkWell(
                                                   onTap: () {
                                                     context.go(
-                                                        '/home/${popular.id}');
+                                                        '/index/${popular.id}');
                                                   },
                                                   child: CachedNetworkImage(
                                                     imageUrl:
@@ -378,7 +379,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                                     child: InkWell(
                                                       onTap: () {
                                                         context.go(
-                                                            '/home/${popular.id}');
+                                                            '/index/${popular.id}');
                                                       },
                                                       child: CachedNetworkImage(
                                                         imageUrl:
@@ -426,7 +427,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                                     child: InkWell(
                                                       onTap: () {
                                                         context.go(
-                                                            '/home/${popular.id}');
+                                                            '/index/${popular.id}');
 
                                                         // Navigator.push(
                                                         //     context,

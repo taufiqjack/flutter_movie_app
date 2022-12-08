@@ -124,7 +124,7 @@ class _SearchViewState extends ConsumerState<SearchView> {
                                     padding: const EdgeInsets.only(bottom: 5),
                                     child: InkWell(
                                       onTap: () {
-                                        context.go('/home/${result.id}');
+                                        context.go('/index/${result.id}');
                                       },
                                       child: Card(
                                         elevation: 0,

@@ -7,6 +7,7 @@ import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:flutter_movie_app/common/riverpod/controllers/home_controller.dart';
 import 'package:flutter_movie_app/common/riverpod/provider/data_load.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -36,12 +37,12 @@ class _DetailMovieViewState extends ConsumerState<DetailMovieView> {
           elevation: 0,
           centerTitle: true,
           title: const Text('Detail'),
-          // leading: InkWell(
-          //   onTap: () {
-          //     Navigator.of(context, rootNavigator: false).pop();
-          //   },
-          //   child: const Icon(Icons.arrow_back_ios),
-          // ),
+          leading: InkWell(
+            onTap: () {
+              context.pop();
+            },
+            child: const Icon(Icons.arrow_back_ios),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),
