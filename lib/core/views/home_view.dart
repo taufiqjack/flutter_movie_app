@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
@@ -66,7 +67,11 @@ class _HomeViewState extends ConsumerState<HomeView> {
                     ),
                   ),
                   const SizedBox(height: 15),
-                  home.isAsync
+                  home.isAsync ||
+                          home.popularMovie == null ||
+                          home.nowPlaying == null ||
+                          home.upcoming == null ||
+                          home.topRated == null
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
