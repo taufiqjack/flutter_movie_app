@@ -31,6 +31,7 @@ class HomeProvider {
     } finally {
       isAsync = false;
     }
+    return null;
   }
 
   Future getDetailMovie(id) async {
@@ -94,9 +95,10 @@ class HomeProvider {
     } finally {
       isAsync = false;
     }
+    return null;
   }
 
-  Future getTopRated() async {
+  Future<TopRatedModel?> getTopRated() async {
     try {
       isAsync = true;
       response = await dio.get(
@@ -114,9 +116,10 @@ class HomeProvider {
     } finally {
       isAsync = false;
     }
+    return null;
   }
 
-  Future getUpcoming() async {
+  Future<UpcomingModel?> getUpcoming() async {
     try {
       isAsync = true;
       response = await dio.get(
@@ -134,5 +137,6 @@ class HomeProvider {
     } finally {
       isAsync = false;
     }
+    return null;
   }
 }

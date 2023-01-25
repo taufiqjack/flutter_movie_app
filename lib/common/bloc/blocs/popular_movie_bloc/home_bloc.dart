@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/resources/api_repository.dart';
 import 'package:flutter_movie_app/common/models/popular_movie_model.dart';
-import 'package:bloc/bloc.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
