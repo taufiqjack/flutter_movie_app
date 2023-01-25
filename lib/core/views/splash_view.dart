@@ -17,7 +17,7 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(
       duration,
       () {
-        context.go('/page');
+        context.go('/index');
       },
     );
     super.initState();

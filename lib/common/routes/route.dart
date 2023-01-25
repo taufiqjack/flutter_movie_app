@@ -1,6 +1,5 @@
 import 'package:flutter_movie_app/common/bloc/views/home_view.dart';
 import 'package:flutter_movie_app/core/views/detail_movie_view.dart';
-import 'package:flutter_movie_app/core/views/home_view.dart';
 import 'package:flutter_movie_app/core/views/index_view.dart';
 import 'package:flutter_movie_app/core/views/splash_view.dart';
 import 'package:flutter_movie_app/core/views/test_view.dart';

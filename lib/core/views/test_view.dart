@@ -12,7 +12,7 @@ class _TestViewState extends State<TestView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Test'),
+        title: const Text('Test'),
       ),
       body: const Center(
         child: Text('Test View'),
