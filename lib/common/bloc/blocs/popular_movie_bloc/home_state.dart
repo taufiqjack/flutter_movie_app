@@ -1,10 +1,22 @@
 part of 'home_bloc.dart';
 
-abstract class HomeState extends Equatable {
-  const HomeState();
+class HomeState extends Equatable {
+  final int? selected;
+
+  const HomeState({
+    this.selected = 1,
+  });
 
   @override
   List<Object?> get props => [];
+
+  HomeState copyWith({
+    int? selected,
+  }) {
+    return HomeState(
+      selected: selected ?? this.selected,
+    );
+  }
 }
 
 class HomeInitial extends HomeState {}
