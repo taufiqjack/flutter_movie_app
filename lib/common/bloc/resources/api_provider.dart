@@ -4,6 +4,7 @@ import 'package:flutter_movie_app/common/models/cast_model.dart';
 import 'package:flutter_movie_app/common/models/movie_detail_model.dart';
 import 'package:flutter_movie_app/common/models/now_playing_model.dart';
 import 'package:flutter_movie_app/common/models/popular_movie_model.dart';
+import 'package:flutter_movie_app/common/models/search_model.dart';
 import 'package:flutter_movie_app/common/models/top_rated_model.dart';
 import 'package:flutter_movie_app/common/models/upcoming_model.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
@@ -137,6 +138,31 @@ class HomeProvider {
     } finally {
       isAsync = false;
     }
+    return null;
+  }
+
+  Future<SearchModel?> getSearch(word, page) async {
+    try {
+      isAsync = true;
+      response = await dio.get(
+          '${Api.domain}${Api().search}?api_key=${Api().apikey}&language=en-US&query=$word&page=$page&include_adult=false',
+          options: Options(headers: {
+            "Accept": "application/json",
+          }));
+
+      var map = response!.data;
+      if (kDebugMode) {
+        print('search : $map');
+      }
+      return SearchModel.fromJson(map);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    } finally {
+      isAsync = false;
+    }
+
     return null;
   }
 }

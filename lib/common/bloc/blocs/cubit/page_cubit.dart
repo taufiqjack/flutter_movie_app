@@ -1,7 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'page_state.dart';
 
 class PageCubit extends Cubit<PageState> {

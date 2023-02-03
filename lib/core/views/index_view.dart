@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_movie_app/common/bloc/views/home_view.dart';
+import 'package:flutter_movie_app/common/bloc/views/search_page_view.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/views/search_view.dart';
 import 'package:flutter_movie_app/core/views/watch_list_view.dart';
@@ -17,7 +18,7 @@ class _IndexViewState extends State<IndexView> {
 
   List pageList = [
     const HomePageView(),
-    const SearchView(),
+    const SearchPageView(),
     const WatchListView(),
   ];
 
