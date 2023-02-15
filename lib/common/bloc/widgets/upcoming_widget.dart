@@ -3,8 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/upcoming/upcoming_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubit/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -29,19 +28,17 @@ class UpcomingWidget extends StatefulWidget {
 class _UpcomingWidgetState extends State<UpcomingWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpcomingBloc, UpcomingState>(builder: (context, state) {
+    return BlocBuilder<UpcomingCubit, UpcomingState>(builder: (context, state) {
       if (state is UpcomingInitial) {
-        return const BuildLoadingWidget();
-      } else if (state is UpcomingLoading) {
         return const BuildLoadingWidget();
       } else if (state is UpcomingLoaded) {
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3),
           shrinkWrap: true,
-          itemCount: state.upcomingModel.results!.length,
+          itemCount: state.upcoming.results!.length,
           itemBuilder: (context, i) {
-            var upcoming = state.upcomingModel.results![i];
+            var upcoming = state.upcoming.results![i];
             return Padding(
               padding: const EdgeInsets.only(left: 5, bottom: 8),
               child: Container(
@@ -70,7 +67,7 @@ class _UpcomingWidgetState extends State<UpcomingWidget> {
             );
           },
         );
-      } else if (state is HomeError) {
+      } else if (state is UpcomingError) {
         return const SizedBox();
       } else {
         return const SizedBox();

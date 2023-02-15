@@ -3,8 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/top_rated/top_rated_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubit/top_rated/top_rated_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -29,12 +28,10 @@ class TopRatedWidget extends StatefulWidget {
 class _TopRatedWidgetState extends State<TopRatedWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TopRatedBloc, TopRatedState>(builder: (context, state) {
-      if (state is TopRateInitial) {
+    return BlocBuilder<TopRatedCubit, TopRatedState>(builder: (context, state) {
+      if (state is TopRatedInitial) {
         return const BuildLoadingWidget();
-      } else if (state is TopRateLoading) {
-        return const BuildLoadingWidget();
-      } else if (state is TopRateLoaded) {
+      } else if (state is TopRatedLoaded) {
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3),
@@ -70,7 +67,7 @@ class _TopRatedWidgetState extends State<TopRatedWidget> {
             );
           },
         );
-      } else if (state is HomeError) {
+      } else if (state is TopRatedError) {
         return const SizedBox();
       } else {
         return const SizedBox();

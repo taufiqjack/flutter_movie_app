@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubit/popular_movies/popular_movie_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
@@ -28,13 +29,11 @@ class PopularMoviesWidget extends StatefulWidget {
 class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
+    return BlocBuilder<PopularMovieCubit, PopularMovieState>(
       builder: (context, state) {
-        if (state is HomeInitial) {
+        if (state is PopularMovieInitial) {
           return const BuildLoadingWidget();
-        } else if (state is HomeLoading) {
-          return const BuildLoadingWidget();
-        } else if (state is HomeLoaded) {
+        } else if (state is PopularMovieLoaded) {
           return Column(
             children: [
               SizedBox(
@@ -42,9 +41,9 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.popularMovieModel.results!.length,
+                  itemCount: state.popular.results!.length,
                   itemBuilder: (context, index) {
-                    var popular = state.popularMovieModel.results![index];
+                    var popular = state.popular.results![index];
                     return Stack(
                       children: [
                         InkWell(

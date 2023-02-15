@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/now_playing/now_playing_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubit/now_playing/now_playing_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/popular_slide_widget.dart';
@@ -32,11 +32,9 @@ class NowPLayingWidget extends StatefulWidget {
 class _NowPLayingWidgetState extends State<NowPLayingWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NowPlayingBloc, NowPlayingState>(
+    return BlocBuilder<NowPlayingCubit, NowPlayingState>(
         builder: (context, state) {
       if (state is NowPlayingInitial) {
-        return const BuildLoadingWidget();
-      } else if (state is NowPlayingLoading) {
         return const BuildLoadingWidget();
       } else if (state is NowPlayingLoaded) {
         return widget.selected == 1
@@ -44,9 +42,9 @@ class _NowPLayingWidgetState extends State<NowPLayingWidget> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3),
                 shrinkWrap: true,
-                itemCount: state.nowPlayingModel.results!.length,
+                itemCount: state.nowPlaying.results!.length,
                 itemBuilder: (context, i) {
-                  var popular = state.nowPlayingModel.results![i];
+                  var popular = state.nowPlaying.results![i];
                   return Padding(
                     padding: const EdgeInsets.only(left: 5, bottom: 8),
                     child: Container(

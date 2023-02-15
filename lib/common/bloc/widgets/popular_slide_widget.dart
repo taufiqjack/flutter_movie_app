@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubit/popular_movies/popular_movie_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -28,19 +28,18 @@ class PopularSlideWidget extends StatefulWidget {
 class _PopularSlideWidgetState extends State<PopularSlideWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(builder: (context, state) {
-      if (state is HomeInitial) {
+    return BlocBuilder<PopularMovieCubit, PopularMovieState>(
+        builder: (context, state) {
+      if (state is PopularMovieInitial) {
         return const BuildLoadingWidget();
-      } else if (state is HomeLoading) {
-        return const BuildLoadingWidget();
-      } else if (state is HomeLoaded) {
+      } else if (state is PopularMovieLoaded) {
         return GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3),
           shrinkWrap: true,
-          itemCount: state.popularMovieModel.results!.length,
+          itemCount: state.popular.results!.length,
           itemBuilder: (context, i) {
-            var popular = state.popularMovieModel.results![i];
+            var popular = state.popular.results![i];
             return Padding(
               padding: const EdgeInsets.only(left: 5, bottom: 8),
               child: Container(
@@ -69,7 +68,7 @@ class _PopularSlideWidgetState extends State<PopularSlideWidget> {
             );
           },
         );
-      } else if (state is HomeError) {
+      } else if (state is PopularMovieError) {
         return const SizedBox();
       } else {
         return const SizedBox();

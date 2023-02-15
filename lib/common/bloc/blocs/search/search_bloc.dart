@@ -12,7 +12,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<GetSearchMovie>((event, emit) async {
       try {
         emit(SearchLoading());
-        final mList = await homeRepository.getSearch(event.word, event.page);
+        var mList = await homeRepository.getSearch(event.word, event.page);
         emit(SearchLoaded(mList!));
       } on NetworkError {
         'Failed get data, please check Internet Connection!';
