@@ -11,7 +11,6 @@ import 'package:flutter_movie_app/common/bloc/widgets/popular_movies_widget.dart
 
 import '../../../core/themes/texstyle.dart';
 import '../../constans/custom_color.dart';
-import '../blocs/popular_movie_bloc/home_bloc.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({super.key});

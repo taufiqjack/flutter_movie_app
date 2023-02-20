@@ -7,13 +7,12 @@ import 'package:flutter_movie_app/common/models/search_model.dart';
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
+  HomeRepository homeRepository = HomeRepository();
   SearchCubit() : super(SearchInitial());
 
-  HomeRepository homeRepository = HomeRepository();
-
-  Future<void> getSearch(word, page) async {
+  Future<void> getSearch(String word, int page) async {
     try {
-      emit(SearchInitial());
+      emit(SearchLoading());
       final search = await homeRepository.getSearch(word, page);
       emit(SearchLoaded(search: search!));
     } catch (e) {

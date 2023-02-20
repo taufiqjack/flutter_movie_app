@@ -141,7 +141,7 @@ class HomeProvider {
     return null;
   }
 
-  Future<SearchModel?> getSearch(word, page) async {
+  Future<SearchModel?> getSearch(String word, int page) async {
     try {
       isAsync = true;
       response = await dio.get(

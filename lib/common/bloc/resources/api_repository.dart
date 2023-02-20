@@ -24,7 +24,7 @@ class HomeRepository {
     return provider.getTopRated();
   }
 
-  Future<SearchModel?> getSearch(word, page) {
+  Future<SearchModel?> getSearch(String word, int page) {
     return provider.getSearch(word, page);
   }
 }
