@@ -131,10 +131,12 @@ class _SearchPageViewState extends State<SearchPageView> {
                                     Text(
                                       'we are sorry, we can not find the movie :(',
                                       style: TextStyle(color: white),
+                                      textAlign: TextAlign.center,
                                     ),
                                     Text(
                                       'Find your movie by Type title, categories, years, etc ',
                                       style: TextStyle(color: grey),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ],
                                 ),

@@ -9,12 +9,14 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovie
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
+import 'package:flutter_movie_app/common/injections/di.dart';
 import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/common/services/http_override_cert.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  setupInject();
   HttpOverrides.global = HttpOverriderCert();
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -30,24 +32,13 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.transparent));
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (_) => PageCubit(),
-        ),
-        BlocProvider(
-          create: (_) => PopularmoviesCubit()..getPopularMovies(),
-        ),
-        BlocProvider(
-          create: (_) => NowPlayingCubit()..getNowPlaying(),
-        ),
-        BlocProvider(
-          create: (_) => UpcomingCubit()..getUpcoming(),
-        ),
-        BlocProvider(
-          create: (_) => TopRatedCubit()..getTopRated(),
-        ),
-        BlocProvider(
-          create: (_) => SearchCubit(),
-        ),
+        BlocProvider<PageCubit>(create: (_) => inject<PageCubit>()),
+        BlocProvider<PopularmoviesCubit>(
+            create: (_) => inject<PopularmoviesCubit>()),
+        BlocProvider<NowPlayingCubit>(create: (_) => inject<NowPlayingCubit>()),
+        BlocProvider<UpcomingCubit>(create: (_) => inject<UpcomingCubit>()),
+        BlocProvider<TopRatedCubit>(create: (_) => inject<TopRatedCubit>()),
+        BlocProvider<SearchCubit>(create: (_) => inject<SearchCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
