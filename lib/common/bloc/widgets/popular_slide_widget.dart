@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/popular_movies/popular_movie_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -28,18 +28,21 @@ class PopularSlideWidget extends StatefulWidget {
 class _PopularSlideWidgetState extends State<PopularSlideWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PopularMovieCubit, PopularMovieState>(
+    return BlocBuilder<PopularmoviesCubit, PopularmoviesState>(
         builder: (context, state) {
-      if (state is PopularMovieInitial) {
-        return const BuildLoadingWidget();
-      } else if (state is PopularMovieLoaded) {
-        return GridView.builder(
+      return state.when(
+        initial: () => const BuildLoadingWidget(),
+        loading: () => const BuildLoadingWidget(),
+        error: (message) => Center(
+          child: Text(message),
+        ),
+        success: (popular) => GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3),
           shrinkWrap: true,
-          itemCount: state.popular.results!.length,
+          itemCount: popular.results!.length,
           itemBuilder: (context, i) {
-            var popular = state.popular.results![i];
+            var populars = popular.results![i];
             return Padding(
               padding: const EdgeInsets.only(left: 5, bottom: 8),
               child: Container(
@@ -47,10 +50,10 @@ class _PopularSlideWidgetState extends State<PopularSlideWidget> {
                     BoxDecoration(borderRadius: BorderRadius.circular(16)),
                 child: InkWell(
                   onTap: () {
-                    context.go('/index/${popular.id}');
+                    context.go('/index/${populars.id}');
                   },
                   child: CachedNetworkImage(
-                    imageUrl: '${Api().image}${popular.posterPath}',
+                    imageUrl: '${Api().image}${populars.posterPath}',
                     placeholder: (context, url) {
                       return SkeletonAnimation(
                         child: Container(
@@ -67,12 +70,8 @@ class _PopularSlideWidgetState extends State<PopularSlideWidget> {
               ),
             );
           },
-        );
-      } else if (state is PopularMovieError) {
-        return const SizedBox();
-      } else {
-        return const SizedBox();
-      }
+        ),
+      );
     });
   }
 }

@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/search/search_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
@@ -265,7 +265,7 @@ class _SearchPageViewState extends State<SearchPageView> {
                               );
                   } else if (state is SearchError) {
                     if (kDebugMode) {
-                      print('cek : ${state}');
+                      print('cek : $state');
                     }
                     return const SizedBox();
                   } else {

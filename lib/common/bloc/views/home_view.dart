@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/page_cubit.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/popular_movies/popular_movie_cubit.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/now_playing/now_playing_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/top_rated/top_rated_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/upcoming/upcoming_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/resources/api_repository.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/now_playing_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/popular_movies_widget.dart';
 

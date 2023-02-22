@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/popular_movies/popular_movie_cubit.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -29,26 +28,27 @@ class PopularMoviesWidget extends StatefulWidget {
 class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PopularMovieCubit, PopularMovieState>(
+    return BlocBuilder<PopularmoviesCubit, PopularmoviesState>(
       builder: (context, state) {
-        if (state is PopularMovieInitial) {
-          return const BuildLoadingWidget();
-        } else if (state is PopularMovieLoaded) {
-          return Column(
+        return state.when(
+          initial: () => const BuildLoadingWidget(),
+          loading: () => const BuildLoadingWidget(),
+          error: (message) => Center(child: Text(message)),
+          success: (popular) => Column(
             children: [
               SizedBox(
                 height: 300,
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.popular.results!.length,
+                  itemCount: popular.results!.length,
                   itemBuilder: (context, index) {
-                    var popular = state.popular.results![index];
+                    var populars = popular.results![index];
                     return Stack(
                       children: [
                         InkWell(
                           onTap: () {
-                            context.go('/index/${popular.id}');
+                            context.go('/index/${populars.id}');
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
@@ -56,7 +56,8 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16)),
                               child: CachedNetworkImage(
-                                imageUrl: '${Api().image}${popular.posterPath}',
+                                imageUrl:
+                                    '${Api().image}${populars.posterPath}',
                                 placeholder: (context, url) {
                                   return SkeletonAnimation(
                                     child: Container(
@@ -92,12 +93,8 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                 ),
               ),
             ],
-          );
-        } else if (state is HomeError) {
-          return const SizedBox();
-        } else {
-          return const SizedBox();
-        }
+          ),
+        );
       },
     );
   }

@@ -1,4 +1,4 @@
-part of 'popular_movie_cubit.dart';
+/* part of 'popular_movie_cubit.dart';
 
 @immutable
 abstract class PopularMovieState extends Equatable {
@@ -20,3 +20,4 @@ class PopularMovieError extends PopularMovieState {
 
   const PopularMovieError({this.message});
 }
+ */

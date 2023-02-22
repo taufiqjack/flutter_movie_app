@@ -3,7 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubit/now_playing/now_playing_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/now_playing/now_playing_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/popular_movie_bloc/home_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/popular_slide_widget.dart';
