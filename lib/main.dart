@@ -8,7 +8,7 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/injections/di.dart';
@@ -40,7 +40,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<NowplayingCubit>(create: (_) => inject<NowplayingCubit>()),
         BlocProvider<UpcomingCubit>(create: (_) => inject<UpcomingCubit>()),
         BlocProvider<TopRatedCubit>(create: (_) => inject<TopRatedCubit>()),
-        BlocProvider<SearchCubit>(create: (_) => inject<SearchCubit>()),
+        BlocProvider<SearchMoviesCubit>(
+            create: (_) => inject<SearchMoviesCubit>()),
         BlocProvider<DetailMoviesCubit>(
             create: (_) => inject<DetailMoviesCubit>()),
         BlocProvider<CastCubit>(create: (_) => inject<CastCubit>()),

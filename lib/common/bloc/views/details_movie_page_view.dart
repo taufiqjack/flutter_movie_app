@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
@@ -38,8 +37,6 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
 
   @override
   Widget build(BuildContext context) {
-    final PageCubit state = BlocProvider.of<PageCubit>(context);
-
     return Scaffold(
       backgroundColor: bluetwo,
       appBar: AppBar(

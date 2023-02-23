@@ -1,8 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
@@ -18,7 +17,7 @@ class SearchPageView extends StatefulWidget {
 }
 
 class _SearchPageViewState extends State<SearchPageView> {
-  final SearchCubit searchBloc = SearchCubit();
+  final SearchMoviesCubit searchBloc = SearchMoviesCubit();
   TextEditingController searchController = TextEditingController();
   var formatter = DateFormat('dd-MM-yyyy');
   int page = 1;
@@ -96,27 +95,18 @@ class _SearchPageViewState extends State<SearchPageView> {
                       )),
                 ),
               ),
-              BlocConsumer<SearchCubit, SearchState>(
+              BlocBuilder<SearchMoviesCubit, SearchMoviesState>(
                 bloc: searchBloc,
-                listener: (context, state) {
-                  if (state is SearchError) {
-                    const Center(
-                      child: Text('Gagal load data!'),
-                    );
-                  }
-                },
                 builder: (context, state) {
-                  if (state is SearchInitial) {
-                    return const SizedBox();
-                  } else if (state is SearchLoading) {
-                    return Padding(
-                        padding: EdgeInsets.symmetric(
-                            vertical: MediaQuery.of(context).size.height / 5),
-                        child: const BuildLoadingWidget());
-                  } else if (state is SearchLoaded) {
-                    return searchController.text.isEmpty
+                  return state.when(
+                    initial: () => const SizedBox(),
+                    loading: () => const BuildLoadingWidget(),
+                    error: (message) => Center(
+                      child: Text(message),
+                    ),
+                    success: (search) => searchController.text.isEmpty
                         ? const SizedBox()
-                        : state.search.results!.isEmpty
+                        : search.results!.isEmpty
                             ? Padding(
                                 padding: EdgeInsets.only(
                                     top:
@@ -147,9 +137,9 @@ class _SearchPageViewState extends State<SearchPageView> {
                                 child: ListView.builder(
                                   physics: const NeverScrollableScrollPhysics(),
                                   shrinkWrap: true,
-                                  itemCount: state.search.results!.length,
+                                  itemCount: search.results!.length,
                                   itemBuilder: (context, index) {
-                                    final result = state.search.results![index];
+                                    final result = search.results![index];
                                     return Padding(
                                       padding: const EdgeInsets.only(bottom: 5),
                                       child: InkWell(
@@ -264,15 +254,8 @@ class _SearchPageViewState extends State<SearchPageView> {
                                     );
                                   },
                                 ),
-                              );
-                  } else if (state is SearchError) {
-                    if (kDebugMode) {
-                      print('cek : $state');
-                    }
-                    return const SizedBox();
-                  } else {
-                    return const SizedBox();
-                  }
+                              ),
+                  );
                 },
               ),
             ],
