@@ -55,29 +55,6 @@ class HomeProvider {
     }
   }
 
-  Future getCast(id) async {
-    try {
-      isAsync = true;
-      response = await dio.get(
-          '${Api().moviedetail}$id/credits?api_key=${Api().apikey}',
-          options: Options(headers: {
-            "Accept": "application/json",
-          }));
-
-      var map = response!.data;
-      // if (kDebugMode) {
-      //   print('cast : $map');
-      // }
-      return CastModel.fromJson(map);
-    } on DioError catch (e) {
-      if (kDebugMode) {
-        print('error $e');
-      }
-    } finally {
-      isAsync = false;
-    }
-  }
-
   Future<NowPlayingModel?> getNowPlaying() async {
     try {
       isAsync = true;
@@ -163,6 +140,49 @@ class HomeProvider {
       isAsync = false;
     }
 
+    return null;
+  }
+
+  Future<MovieDetailModel?> getDetails(int id) async {
+    try {
+      isAsync = true;
+      response =
+          await dio.get('${Api().moviedetail}$id?api_key=${Api().apikey}',
+              options: Options(headers: {
+                "Accept": "application/json",
+              }));
+
+      var map = response!.data;
+      return MovieDetailModel.fromJson(map);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+    } finally {
+      isAsync = false;
+    }
+
+    return null;
+  }
+
+  Future<CastModel?> getCast(int id) async {
+    try {
+      isAsync = true;
+      response = await dio.get(
+          '${Api().moviedetail}$id/credits?api_key=${Api().apikey}',
+          options: Options(headers: {
+            "Accept": "application/json",
+          }));
+
+      var map = response!.data;
+      return CastModel.fromJson(map);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        print('error $e');
+      }
+    } finally {
+      isAsync = false;
+    }
     return null;
   }
 }

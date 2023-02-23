@@ -1,4 +1,4 @@
-part of 'now_playing_cubit.dart';
+/* part of 'now_playing_cubit.dart';
 
 @immutable
 abstract class NowPlayingState extends Equatable {
@@ -20,3 +20,4 @@ class NowPlayingError extends NowPlayingState {
 
   const NowPlayingError({this.message});
 }
+ */

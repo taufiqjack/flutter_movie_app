@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/now_playing_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/popular_movies_widget.dart';
 
@@ -31,10 +35,16 @@ class _HomePageViewState extends State<HomePageView> {
       backgroundColor: bluetwo,
       body: RefreshIndicator(
         onRefresh: () async {
-          await Future.delayed(const Duration(seconds: 2), () {});
+          await Future.delayed(const Duration(seconds: 2), () {
+            BlocProvider.of<UpcomingCubit>(context).getUpcoming();
+            BlocProvider.of<NowplayingCubit>(context).getNowPlaying();
+            BlocProvider.of<PopularmoviesCubit>(context).getPopularMovies();
+            BlocProvider.of<TopRatedCubit>(context).getTopRated();
+          });
         },
         child: SafeArea(
           child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
             child: Padding(
                 padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
                 child: BlocBuilder<PageCubit, PageState>(

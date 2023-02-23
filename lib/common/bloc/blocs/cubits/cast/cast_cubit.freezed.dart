@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'popularmovies_cubit.dart';
+part of 'cast_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,13 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PopularmoviesState {
+mixin _$CastState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(PopularMovieModel popular) success,
+    required TResult Function(CastModel cast) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$PopularmoviesState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(PopularMovieModel popular)? success,
+    TResult? Function(CastModel cast)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$PopularmoviesState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(PopularMovieModel popular)? success,
+    TResult Function(CastModel cast)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,16 +69,15 @@ mixin _$PopularmoviesState {
 }
 
 /// @nodoc
-abstract class $PopularmoviesStateCopyWith<$Res> {
-  factory $PopularmoviesStateCopyWith(
-          PopularmoviesState value, $Res Function(PopularmoviesState) then) =
-      _$PopularmoviesStateCopyWithImpl<$Res, PopularmoviesState>;
+abstract class $CastStateCopyWith<$Res> {
+  factory $CastStateCopyWith(CastState value, $Res Function(CastState) then) =
+      _$CastStateCopyWithImpl<$Res, CastState>;
 }
 
 /// @nodoc
-class _$PopularmoviesStateCopyWithImpl<$Res, $Val extends PopularmoviesState>
-    implements $PopularmoviesStateCopyWith<$Res> {
-  _$PopularmoviesStateCopyWithImpl(this._value, this._then);
+class _$CastStateCopyWithImpl<$Res, $Val extends CastState>
+    implements $CastStateCopyWith<$Res> {
+  _$CastStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +94,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$PopularmoviesStateCopyWithImpl<$Res, _$_Initial>
+    extends _$CastStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -103,18 +102,12 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial with DiagnosticableTreeMixin implements _Initial {
+class _$_Initial implements _Initial {
   const _$_Initial();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PopularmoviesState.initial()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'PopularmoviesState.initial'));
+  String toString() {
+    return 'CastState.initial()';
   }
 
   @override
@@ -132,7 +125,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(PopularMovieModel popular) success,
+    required TResult Function(CastModel cast) success,
   }) {
     return initial();
   }
@@ -143,7 +136,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(PopularMovieModel popular)? success,
+    TResult? Function(CastModel cast)? success,
   }) {
     return initial?.call();
   }
@@ -154,7 +147,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(PopularMovieModel popular)? success,
+    TResult Function(CastModel cast)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,7 +194,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   }
 }
 
-abstract class _Initial implements PopularmoviesState {
+abstract class _Initial implements CastState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -214,7 +207,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$PopularmoviesStateCopyWithImpl<$Res, _$_Loading>
+    extends _$CastStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -222,18 +215,12 @@ class __$$_LoadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Loading with DiagnosticableTreeMixin implements _Loading {
+class _$_Loading implements _Loading {
   const _$_Loading();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PopularmoviesState.loading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'PopularmoviesState.loading'));
+  String toString() {
+    return 'CastState.loading()';
   }
 
   @override
@@ -251,7 +238,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(PopularMovieModel popular) success,
+    required TResult Function(CastModel cast) success,
   }) {
     return loading();
   }
@@ -262,7 +249,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(PopularMovieModel popular)? success,
+    TResult? Function(CastModel cast)? success,
   }) {
     return loading?.call();
   }
@@ -273,7 +260,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(PopularMovieModel popular)? success,
+    TResult Function(CastModel cast)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -320,7 +307,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   }
 }
 
-abstract class _Loading implements PopularmoviesState {
+abstract class _Loading implements CastState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -334,7 +321,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$PopularmoviesStateCopyWithImpl<$Res, _$_Error>
+    extends _$CastStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -355,23 +342,15 @@ class __$$_ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error with DiagnosticableTreeMixin implements _Error {
+class _$_Error implements _Error {
   const _$_Error(this.message);
 
   @override
   final String message;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PopularmoviesState.error(message: $message)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PopularmoviesState.error'))
-      ..add(DiagnosticsProperty('message', message));
+  String toString() {
+    return 'CastState.error(message: $message)';
   }
 
   @override
@@ -397,7 +376,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(PopularMovieModel popular) success,
+    required TResult Function(CastModel cast) success,
   }) {
     return error(message);
   }
@@ -408,7 +387,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(PopularMovieModel popular)? success,
+    TResult? Function(CastModel cast)? success,
   }) {
     return error?.call(message);
   }
@@ -419,7 +398,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(PopularMovieModel popular)? success,
+    TResult Function(CastModel cast)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -466,7 +445,7 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   }
 }
 
-abstract class _Error implements PopularmoviesState {
+abstract class _Error implements CastState {
   const factory _Error(final String message) = _$_Error;
 
   String get message;
@@ -481,14 +460,14 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({PopularMovieModel popular});
+  $Res call({CastModel cast});
 
-  $PopularMovieModelCopyWith<$Res> get popular;
+  $CastModelCopyWith<$Res> get cast;
 }
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$PopularmoviesStateCopyWithImpl<$Res, _$_Success>
+    extends _$CastStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
@@ -496,44 +475,36 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? popular = null,
+    Object? cast = null,
   }) {
     return _then(_$_Success(
-      null == popular
-          ? _value.popular
-          : popular // ignore: cast_nullable_to_non_nullable
-              as PopularMovieModel,
+      null == cast
+          ? _value.cast
+          : cast // ignore: cast_nullable_to_non_nullable
+              as CastModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PopularMovieModelCopyWith<$Res> get popular {
-    return $PopularMovieModelCopyWith<$Res>(_value.popular, (value) {
-      return _then(_value.copyWith(popular: value));
+  $CastModelCopyWith<$Res> get cast {
+    return $CastModelCopyWith<$Res>(_value.cast, (value) {
+      return _then(_value.copyWith(cast: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$_Success with DiagnosticableTreeMixin implements _Success {
-  const _$_Success(this.popular);
+class _$_Success implements _Success {
+  const _$_Success(this.cast);
 
   @override
-  final PopularMovieModel popular;
+  final CastModel cast;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PopularmoviesState.success(popular: $popular)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PopularmoviesState.success'))
-      ..add(DiagnosticsProperty('popular', popular));
+  String toString() {
+    return 'CastState.success(cast: $cast)';
   }
 
   @override
@@ -541,11 +512,11 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.popular, popular) || other.popular == popular));
+            (identical(other.cast, cast) || other.cast == cast));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, popular);
+  int get hashCode => Object.hash(runtimeType, cast);
 
   @JsonKey(ignore: true)
   @override
@@ -559,9 +530,9 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(String message) error,
-    required TResult Function(PopularMovieModel popular) success,
+    required TResult Function(CastModel cast) success,
   }) {
-    return success(popular);
+    return success(cast);
   }
 
   @override
@@ -570,9 +541,9 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(String message)? error,
-    TResult? Function(PopularMovieModel popular)? success,
+    TResult? Function(CastModel cast)? success,
   }) {
-    return success?.call(popular);
+    return success?.call(cast);
   }
 
   @override
@@ -581,11 +552,11 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(String message)? error,
-    TResult Function(PopularMovieModel popular)? success,
+    TResult Function(CastModel cast)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(popular);
+      return success(cast);
     }
     return orElse();
   }
@@ -628,10 +599,10 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   }
 }
 
-abstract class _Success implements PopularmoviesState {
-  const factory _Success(final PopularMovieModel popular) = _$_Success;
+abstract class _Success implements CastState {
+  const factory _Success(final CastModel cast) = _$_Success;
 
-  PopularMovieModel get popular;
+  CastModel get cast;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;

@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/now_playing/now_playing_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
@@ -35,10 +37,13 @@ class MyApp extends StatelessWidget {
         BlocProvider<PageCubit>(create: (_) => inject<PageCubit>()),
         BlocProvider<PopularmoviesCubit>(
             create: (_) => inject<PopularmoviesCubit>()),
-        BlocProvider<NowPlayingCubit>(create: (_) => inject<NowPlayingCubit>()),
+        BlocProvider<NowplayingCubit>(create: (_) => inject<NowplayingCubit>()),
         BlocProvider<UpcomingCubit>(create: (_) => inject<UpcomingCubit>()),
         BlocProvider<TopRatedCubit>(create: (_) => inject<TopRatedCubit>()),
         BlocProvider<SearchCubit>(create: (_) => inject<SearchCubit>()),
+        BlocProvider<DetailMoviesCubit>(
+            create: (_) => inject<DetailMoviesCubit>()),
+        BlocProvider<CastCubit>(create: (_) => inject<CastCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

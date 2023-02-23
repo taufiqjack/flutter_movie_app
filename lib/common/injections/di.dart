@@ -1,4 +1,6 @@
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/now_playing/now_playing_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search/search_cubit.dart';
@@ -12,7 +14,9 @@ void setupInject() {
   inject.registerLazySingleton(() => PageCubit());
   inject.registerLazySingleton(() => SearchCubit());
   inject.registerLazySingleton(() => PopularmoviesCubit()..getPopularMovies());
-  inject.registerLazySingleton(() => NowPlayingCubit()..getNowPlaying());
+  inject.registerLazySingleton(() => NowplayingCubit()..getNowPlaying());
   inject.registerLazySingleton(() => UpcomingCubit()..getUpcoming());
   inject.registerLazySingleton(() => TopRatedCubit()..getTopRated());
+  inject.registerLazySingleton(() => DetailMoviesCubit());
+  inject.registerLazySingleton(() => CastCubit());
 }

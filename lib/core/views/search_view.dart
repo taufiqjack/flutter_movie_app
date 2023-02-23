@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:skeleton_text/skeleton_text.dart';
 
 class SearchView extends ConsumerStatefulWidget {
   const SearchView({super.key});
@@ -140,6 +141,19 @@ class _SearchViewState extends ConsumerState<SearchView> {
                                                 height: 120,
                                                 width: 95,
                                                 fit: BoxFit.cover,
+                                                placeholder: (context, url) {
+                                                  return SkeletonAnimation(
+                                                    child: Container(
+                                                      height: 120,
+                                                      width: 95,
+                                                      decoration: BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(16),
+                                                          color: grey),
+                                                    ),
+                                                  );
+                                                },
                                                 errorWidget:
                                                     (context, url, error) {
                                                   return Container(
