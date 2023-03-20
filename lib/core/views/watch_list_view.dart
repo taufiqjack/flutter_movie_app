@@ -16,7 +16,10 @@ class _WatchListViewState extends State<WatchListView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: const Text('Watch list'),
+        title: Text(
+          'Watch list',
+          style: TextStyle(color: white),
+        ),
         centerTitle: true,
       ),
       backgroundColor: bluetwo,

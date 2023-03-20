@@ -1,5 +1,5 @@
-import 'package:flutter_movie_app/core/views/detail_movie_view.dart';
-import 'package:flutter_movie_app/core/views/home_view.dart';
+import 'package:flutter_movie_app/common/bloc/views/details_movie_page_view.dart';
+import 'package:flutter_movie_app/common/bloc/views/home_page_view.dart';
 import 'package:flutter_movie_app/core/views/index_view.dart';
 import 'package:flutter_movie_app/core/views/splash_view.dart';
 import 'package:flutter_movie_app/core/views/test_view.dart';
@@ -23,7 +23,8 @@ final GoRouter router = GoRouter(
           path: ':id',
           builder: (context, state) {
             var id = int.parse(state.params['id']!);
-            return DetailMovieView(id: id);
+            // return DetailMovieView(id: id);
+            return DetailsMoviePageView(id: id);
           },
         ),
       ],
@@ -34,5 +35,11 @@ final GoRouter router = GoRouter(
         return const TestView();
       },
     ),
+    GoRoute(
+      path: '/page',
+      builder: (context, state) {
+        return const HomePageView();
+      },
+    )
   ],
 );
