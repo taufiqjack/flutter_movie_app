@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
 import '../../constans/custom_color.dart';
-import '../../services/api.dart';
 
 class UpcomingWidget extends StatefulWidget {
   int selected;
@@ -49,7 +49,7 @@ class _UpcomingWidgetState extends State<UpcomingWidget> {
                     context.go('/index/${upcoming.id}');
                   },
                   child: CachedNetworkImage(
-                    imageUrl: '${Api().image}${upcoming.posterPath}',
+                    imageUrl: '$IMAGE${upcoming.posterPath}',
                     placeholder: (context, url) {
                       return SkeletonAnimation(
                         child: Container(

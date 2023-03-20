@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
+import 'package:flutter_movie_app/common/constans/custom_color.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
-
-import '../../../core/themes/texstyle.dart';
-import '../../constans/custom_color.dart';
-import '../../services/api.dart';
 
 class PopularMoviesWidget extends StatefulWidget {
   final int selected;
@@ -56,8 +55,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16)),
                               child: CachedNetworkImage(
-                                imageUrl:
-                                    '${Api().image}${populars.posterPath}',
+                                imageUrl: '$IMAGE${populars.posterPath}',
                                 placeholder: (context, url) {
                                   return SkeletonAnimation(
                                     child: Container(

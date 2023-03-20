@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
@@ -14,10 +15,12 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cub
 import 'package:flutter_movie_app/common/injections/di.dart';
 import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/common/services/http_override_cert.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+Future<void> main() async {
+  await dotenv.load(fileName: ENV_PATH);
   setupInject();
   HttpOverrides.global = HttpOverriderCert();
   runApp(const ProviderScope(child: MyApp()));

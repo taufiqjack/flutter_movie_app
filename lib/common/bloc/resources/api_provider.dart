@@ -8,6 +8,7 @@ import 'package:flutter_movie_app/common/models/search_model.dart';
 import 'package:flutter_movie_app/common/models/top_rated_model.dart';
 import 'package:flutter_movie_app/common/models/upcoming_model.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 
 class HomeProvider {
   Dio dio = Dio();
@@ -17,8 +18,7 @@ class HomeProvider {
   Future<PopularMovieModel?> getPopularMovie() async {
     try {
       isAsync = true;
-      response = await dio.get(
-          '${Api.domain}${Api().trending}?api_key=${Api().apikey}',
+      response = await dio.get('$domain${Api.trending}?api_key=$apiKey',
           options: Options(headers: {
             "Accept": "application/json",
           }));
@@ -38,11 +38,10 @@ class HomeProvider {
   Future getDetailMovie(id) async {
     try {
       isAsync = true;
-      response =
-          await dio.get('${Api().moviedetail}$id?api_key=${Api().apikey}',
-              options: Options(headers: {
-                "Accept": "application/json",
-              }));
+      response = await dio.get('$domain${Api.moviedetail}$id?api_key=$apiKey',
+          options: Options(headers: {
+            "Accept": "application/json",
+          }));
 
       var map = response!.data;
       return MovieDetailModel.fromJson(map);
@@ -58,8 +57,7 @@ class HomeProvider {
   Future<NowPlayingModel?> getNowPlaying() async {
     try {
       isAsync = true;
-      response = await dio.get(
-          '${Api.domain}${Api().nowPlaying}?api_key=${Api().apikey}',
+      response = await dio.get('$domain${Api.nowPlaying}?api_key=$apiKey',
           options: Options(headers: {
             "Accept": "application/json",
           }));
@@ -79,8 +77,7 @@ class HomeProvider {
   Future<TopRatedModel?> getTopRated() async {
     try {
       isAsync = true;
-      response = await dio.get(
-          '${Api.domain}${Api().toprated}?api_key=${Api().apikey}',
+      response = await dio.get('$domain${Api.toprated}?api_key=$apiKey',
           options: Options(headers: {
             "Accept": "aplication/json",
           }));
@@ -100,8 +97,7 @@ class HomeProvider {
   Future<UpcomingModel?> getUpcoming() async {
     try {
       isAsync = true;
-      response = await dio.get(
-          '${Api.domain}${Api().upcoming}?api_key=${Api().apikey}',
+      response = await dio.get('$domain${Api.upcoming}?api_key=$apiKey',
           options: Options(headers: {
             "Accept": "aplication/json",
           }));
@@ -122,7 +118,7 @@ class HomeProvider {
     try {
       isAsync = true;
       response = await dio.get(
-          '${Api.domain}${Api().search}?api_key=${Api().apikey}&language=en-US&query=$word&page=$page&include_adult=false',
+          '$domain${Api.search}?api_key=$apiKey&language=en-US&query=$word&page=$page&include_adult=false',
           options: Options(headers: {
             "Accept": "application/json",
           }));
@@ -146,11 +142,10 @@ class HomeProvider {
   Future<MovieDetailModel?> getDetails(int id) async {
     try {
       isAsync = true;
-      response =
-          await dio.get('${Api().moviedetail}$id?api_key=${Api().apikey}',
-              options: Options(headers: {
-                "Accept": "application/json",
-              }));
+      response = await dio.get('$domain${Api.moviedetail}$id?api_key=$apiKey',
+          options: Options(headers: {
+            "Accept": "application/json",
+          }));
 
       var map = response!.data;
       return MovieDetailModel.fromJson(map);
@@ -168,11 +163,11 @@ class HomeProvider {
   Future<CastModel?> getCast(int id) async {
     try {
       isAsync = true;
-      response = await dio.get(
-          '${Api().moviedetail}$id/credits?api_key=${Api().apikey}',
-          options: Options(headers: {
-            "Accept": "application/json",
-          }));
+      response =
+          await dio.get('$domain${Api.moviedetail}$id/credits?api_key=$apiKey',
+              options: Options(headers: {
+                "Accept": "application/json",
+              }));
 
       var map = response!.data;
       return CastModel.fromJson(map);

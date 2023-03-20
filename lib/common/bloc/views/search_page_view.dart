@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
-import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -156,7 +156,7 @@ class _SearchPageViewState extends State<SearchPageView> {
                                                     BorderRadius.circular(16),
                                                 child: CachedNetworkImage(
                                                   imageUrl:
-                                                      '${Api().image}${result.backdropPath}',
+                                                      '$IMAGE${result.backdropPath}',
                                                   height: 120,
                                                   width: 95,
                                                   fit: BoxFit.cover,

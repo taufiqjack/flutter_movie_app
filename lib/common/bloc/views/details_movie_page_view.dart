@@ -5,8 +5,8 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart'
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
-import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/common/utils/embed_uri.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -94,7 +94,7 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                             bottomRight: Radius.circular(16),
                           ),
                           child: CachedNetworkImage(
-                              imageUrl: '${Api().image}${details.backdropPath}',
+                              imageUrl: '$IMAGE${details.backdropPath}',
                               errorWidget: (context, url, error) => Container(
                                     width: MediaQuery.of(context).size.width,
                                     decoration: BoxDecoration(
@@ -118,7 +118,7 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(16)),
                         child: CachedNetworkImage(
-                            imageUrl: '${Api().image}${details.posterPath}',
+                            imageUrl: '$IMAGE${details.posterPath}',
                             height: 100,
                             errorWidget: (context, url, error) => Container(
                                   width: 100,
@@ -319,7 +319,7 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                                   child: CachedNetworkImage(
                                                     fit: BoxFit.cover,
                                                     imageUrl:
-                                                        '${Api().image}/${casting.profilePath}',
+                                                        '$IMAGE/${casting.profilePath}',
                                                     placeholder:
                                                         (context, url) {
                                                       return SkeletonAnimation(

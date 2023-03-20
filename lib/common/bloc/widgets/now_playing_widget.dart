@@ -9,7 +9,7 @@ import 'package:flutter_movie_app/common/bloc/widgets/popular_slide_widget.dart'
 import 'package:flutter_movie_app/common/bloc/widgets/top_rated_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/upcoming_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
-import 'package:flutter_movie_app/common/services/api.dart';
+import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
@@ -56,7 +56,7 @@ class _NowPLayingWidgetState extends State<NowPLayingWidget> {
                             context.go('/index/${result.id}');
                           },
                           child: CachedNetworkImage(
-                            imageUrl: '${Api().image}${result.posterPath}',
+                            imageUrl: '$IMAGE${result.posterPath}',
                             placeholder: (context, url) {
                               return SkeletonAnimation(
                                 child: Container(
