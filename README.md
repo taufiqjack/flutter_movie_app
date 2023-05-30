@@ -1,16 +1,8 @@
-# flutter_movie_app
+Flutter Movie Apps
 
-A new Flutter project.
+# Capture
+| Home Page | Details Page | Search Page |
+|-----------|-------------|-------------|
+| <img src='assets/images/home_page.png' width='200'> | <img src='assets/images/details_page.png' width='200'> | <img src='assets/images/search_page.png' width='200'> |
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

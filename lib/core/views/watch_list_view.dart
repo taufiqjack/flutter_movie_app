@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
+import 'package:flutter_movie_app/common/constans/path_asset.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WatchListView extends StatefulWidget {
@@ -27,7 +28,9 @@ class _WatchListViewState extends State<WatchListView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset('assets/images/empty_box.svg'),
+            SvgPicture.asset(
+              AssetPath.svg('empty_box'),
+            ),
             const SizedBox(
               height: 10,
             ),

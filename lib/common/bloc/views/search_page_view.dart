@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
+import 'package:flutter_movie_app/common/constans/path_asset.dart';
 import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -113,8 +114,9 @@ class _SearchPageViewState extends State<SearchPageView> {
                                         MediaQuery.of(context).size.height / 5),
                                 child: Column(
                                   children: [
-                                    SvgPicture.asset(
-                                        'assets/images/search_icon.svg'),
+                                    SvgPicture.asset(AssetPath.svg(
+                                      'search_icon',
+                                    )),
                                     const SizedBox(
                                       height: 10,
                                     ),
