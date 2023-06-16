@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/common/models/popular_movie_model.dart';
 import 'package:flutter_movie_app/common/models/search_model.dart';
 import 'package:flutter_movie_app/common/models/top_rated_model.dart';
 import 'package:flutter_movie_app/common/models/upcoming_model.dart';
+import 'package:flutter_movie_app/features/cctv/models/cctv_data_diy.dart';
 
 class HomeRepository {
   final provider = HomeProvider();
@@ -36,6 +37,10 @@ class HomeRepository {
 
   Future<CastModel?> getCast(int id) {
     return provider.getCast(id);
+  }
+
+  Future<CctvDataDiy?> getCctvData() {
+    return provider.getCcctvData();
   }
 }
 

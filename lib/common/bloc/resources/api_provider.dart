@@ -9,9 +9,15 @@ import 'package:flutter_movie_app/common/models/top_rated_model.dart';
 import 'package:flutter_movie_app/common/models/upcoming_model.dart';
 import 'package:flutter_movie_app/common/services/api.dart';
 import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/features/cctv/models/cctv_data_diy.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class HomeProvider {
-  Dio dio = Dio();
+  Dio dio = Dio()
+    ..interceptors.add(PrettyDioLogger(
+      requestBody: true,
+      responseBody: true,
+    ));
   Response? response;
   var isAsync = false;
 
@@ -171,6 +177,24 @@ class HomeProvider {
 
       var map = response!.data;
       return CastModel.fromJson(map);
+    } on DioError catch (e) {
+      if (kDebugMode) {
+        print('error $e');
+      }
+    } finally {
+      isAsync = false;
+    }
+    return null;
+  }
+
+  Future<CctvDataDiy?> getCcctvData() async {
+    try {
+      isAsync = true;
+      response = await dio.get(
+        cctv,
+      );
+      var data = response!.data;
+      return CctvDataDiy.fromJson(data);
     } on DioError catch (e) {
       if (kDebugMode) {
         print('error $e');

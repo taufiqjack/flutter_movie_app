@@ -57,6 +57,9 @@ dependencies:
   equatable: ^2.0.5
   get_it: ^7.2.0
   flutter_dotenv: ^5.0.2
+  pretty_dio_logger: ^1.2.0-beta-1
+  video_player: ^2.6.1
+  chewie: ^1.5.0
 
 dev_dependencies:
   flutter_test:

@@ -6,3 +6,4 @@ const String ENV_PATH = '.env';
 String domain = '${dotenv.env['BASE_URL']}';
 String apiKey = '${dotenv.env['API_KEY']}';
 String IMAGE = '${dotenv.env['IMAGE_PATH']}';
+String cctv = '${dotenv.env['URI_CCTV']}';

@@ -7,6 +7,8 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_c
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/now_playing_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/popular_movies_widget.dart';
+import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
+import 'package:flutter_movie_app/features/cctv/models/cctv_data_diy.dart';
 
 import '../../../core/themes/texstyle.dart';
 import '../../constans/custom_color.dart';
