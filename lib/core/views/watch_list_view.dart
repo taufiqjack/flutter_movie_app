@@ -1,3 +1,4 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
@@ -13,6 +14,28 @@ class WatchListView extends StatefulWidget {
 }
 
 class _WatchListViewState extends State<WatchListView> {
+  final videoController = VideoPlayerController.network(
+      'https://mam.jogjaprov.go.id:1937/atcs-kota/JoktengKulon.stream/playlist.m3u8');
+
+  ChewieController? chewieController;
+  @override
+  void initState() {
+    super.initState();
+    chewieController = ChewieController(
+        aspectRatio: 15 / 9,
+        videoPlayerController: videoController,
+        autoPlay: true,
+        autoInitialize: true,
+        looping: true);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    chewieController!.dispose();
+    chewieController!.videoPlayerController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +84,7 @@ class _WatchListViewState extends State<WatchListView> {
                         const SizedBox(
                           height: 10,
                         ),
-                        AspectRatio(
-                          aspectRatio: 10,
-                          child: VideoPlayer(VideoPlayerController.contentUri(
-                              Uri.parse(
-                                  'https://mam.jogjaprov.go.id:1937/atcs-kota/JoktengKulon.stream/playlist.m3u8'))
-                            ..initialize()),
-                        ),
+                        Chewie(controller: chewieController!),
                       ],
                     ),
                   );
