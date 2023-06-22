@@ -15,25 +15,24 @@ class WatchListView extends StatefulWidget {
 
 class _WatchListViewState extends State<WatchListView> {
   final videoController = VideoPlayerController.network(
-      'https://mam.jogjaprov.go.id:1937/atcs-kota/JoktengKulon.stream/playlist.m3u8');
+      'https://mam.jogjaprov.go.id:1937/atcs-kota/KMNol.stream/chunklist_w1508605635.m3u8');
 
   ChewieController? chewieController;
   @override
   void initState() {
     super.initState();
     chewieController = ChewieController(
-        aspectRatio: 15 / 9,
-        videoPlayerController: videoController,
-        autoPlay: true,
-        autoInitialize: true,
-        looping: true);
+      videoPlayerController: videoController,
+      autoPlay: true,
+      autoInitialize: true,
+    );
   }
 
   @override
   void dispose() {
     super.dispose();
     chewieController!.dispose();
-    chewieController!.videoPlayerController.dispose();
+    videoController.dispose();
   }
 
   @override
@@ -84,7 +83,10 @@ class _WatchListViewState extends State<WatchListView> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Chewie(controller: chewieController!),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 3,
+                          child: Chewie(controller: chewieController!),
+                        ),
                       ],
                     ),
                   );

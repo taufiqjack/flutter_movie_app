@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
-import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
@@ -32,7 +32,11 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
         return state.when(
           initial: () => const BuildLoadingWidget(),
           loading: () => const BuildLoadingWidget(),
-          error: (message) => Center(child: Text(message)),
+          error: (message) => Center(
+              child: Text(
+            message,
+            style: TextStyle(color: white),
+          )),
           success: (popular) => Column(
             children: [
               SizedBox(
@@ -55,7 +59,8 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16)),
                               child: CachedNetworkImage(
-                                imageUrl: '$IMAGE${populars.posterPath}',
+                                imageUrl:
+                                    '${RestContract.path}${populars.posterPath}',
                                 placeholder: (context, url) {
                                   return SkeletonAnimation(
                                     child: Container(

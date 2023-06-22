@@ -1,4 +1,4 @@
-import 'package:flutter_movie_app/common/bloc/resources/api_provider.dart';
+/* import 'package:flutter_movie_app/common/bloc/resources/api_provider.dart';
 import 'package:flutter_movie_app/common/models/cast_model.dart';
 import 'package:flutter_movie_app/common/models/movie_detail_model.dart';
 import 'package:flutter_movie_app/common/models/now_playing_model.dart';
@@ -45,3 +45,4 @@ class HomeRepository {
 }
 
 class NetworkError extends Error {}
+ */

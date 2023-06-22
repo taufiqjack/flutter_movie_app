@@ -1,4 +1,4 @@
-import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
+/* import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/page_cubit.dart';
@@ -22,3 +22,4 @@ void setupInject() {
   inject.registerLazySingleton(() => CastCubit());
   inject.registerLazySingleton(() => CctvDiyCubit());
 }
+ */
