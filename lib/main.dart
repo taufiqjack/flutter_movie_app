@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:chucker_flutter/chucker_flutter.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,16 +15,20 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovie
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
-import 'package:flutter_movie_app/common/injections/di.dart';
 import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/common/services/http_override_cert.dart';
 import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/core/deps/deps.dart';
+import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   await dotenv.load(fileName: ENV_PATH);
-  setupInject();
+  Deps.init();
   HttpOverrides.global = HttpOverriderCert();
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -37,17 +44,15 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.transparent));
     return MultiBlocProvider(
       providers: [
-        BlocProvider<PageCubit>(create: (_) => inject<PageCubit>()),
-        BlocProvider<PopularmoviesCubit>(
-            create: (_) => inject<PopularmoviesCubit>()),
-        BlocProvider<NowplayingCubit>(create: (_) => inject<NowplayingCubit>()),
-        BlocProvider<UpcomingCubit>(create: (_) => inject<UpcomingCubit>()),
-        BlocProvider<TopRatedCubit>(create: (_) => inject<TopRatedCubit>()),
-        BlocProvider<SearchMoviesCubit>(
-            create: (_) => inject<SearchMoviesCubit>()),
-        BlocProvider<DetailMoviesCubit>(
-            create: (_) => inject<DetailMoviesCubit>()),
-        BlocProvider<CastCubit>(create: (_) => inject<CastCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<PageCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<PopularmoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<NowplayingCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<UpcomingCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<TopRatedCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<SearchMoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<DetailMoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<CastCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<CctvDiyCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

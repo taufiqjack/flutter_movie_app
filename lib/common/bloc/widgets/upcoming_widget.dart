@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
-import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
@@ -49,7 +49,7 @@ class _UpcomingWidgetState extends State<UpcomingWidget> {
                     context.go('/index/${upcoming.id}');
                   },
                   child: CachedNetworkImage(
-                    imageUrl: '$IMAGE${upcoming.posterPath}',
+                    imageUrl: '${RestContract.path}${upcoming.posterPath}',
                     placeholder: (context, url) {
                       return SkeletonAnimation(
                         child: Container(

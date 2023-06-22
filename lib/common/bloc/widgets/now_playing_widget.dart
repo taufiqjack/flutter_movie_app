@@ -9,7 +9,7 @@ import 'package:flutter_movie_app/common/bloc/widgets/popular_slide_widget.dart'
 import 'package:flutter_movie_app/common/bloc/widgets/top_rated_widget.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/upcoming_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
-import 'package:flutter_movie_app/core/constants/constant.dart';
+import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeleton_text/skeleton_text.dart';
 
@@ -36,7 +36,10 @@ class _NowPLayingWidgetState extends State<NowPLayingWidget> {
           initial: () => const BuildLoadingWidget(),
           loading: () => const BuildLoadingWidget(),
           error: (message) => Center(
-            child: Text(message),
+            child: Text(
+              message,
+              style: TextStyle(color: white),
+            ),
           ),
           success: (nowPlaying) => widget.selected == 1
               ? GridView.builder(
@@ -56,7 +59,8 @@ class _NowPLayingWidgetState extends State<NowPLayingWidget> {
                             context.go('/index/${result.id}');
                           },
                           child: CachedNetworkImage(
-                            imageUrl: '$IMAGE${result.posterPath}',
+                            imageUrl:
+                                '${RestContract.path}${result.posterPath}',
                             placeholder: (context, url) {
                               return SkeletonAnimation(
                                 child: Container(

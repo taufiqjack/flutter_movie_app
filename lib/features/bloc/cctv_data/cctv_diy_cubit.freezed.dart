@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'search_movies_cubit.dart';
+part of 'cctv_diy_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$SearchMoviesState {
+mixin _$CctvDiyState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(SearchModel search) success,
+    required TResult Function(String error) error,
+    required TResult Function(CctvDataDiy cctvData) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(SearchModel search)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(CctvDataDiy cctvData)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(SearchModel search)? success,
+    TResult Function(String error)? error,
+    TResult Function(CctvDataDiy cctvData)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,16 +69,16 @@ mixin _$SearchMoviesState {
 }
 
 /// @nodoc
-abstract class $SearchMoviesStateCopyWith<$Res> {
-  factory $SearchMoviesStateCopyWith(
-          SearchMoviesState value, $Res Function(SearchMoviesState) then) =
-      _$SearchMoviesStateCopyWithImpl<$Res, SearchMoviesState>;
+abstract class $CctvDiyStateCopyWith<$Res> {
+  factory $CctvDiyStateCopyWith(
+          CctvDiyState value, $Res Function(CctvDiyState) then) =
+      _$CctvDiyStateCopyWithImpl<$Res, CctvDiyState>;
 }
 
 /// @nodoc
-class _$SearchMoviesStateCopyWithImpl<$Res, $Val extends SearchMoviesState>
-    implements $SearchMoviesStateCopyWith<$Res> {
-  _$SearchMoviesStateCopyWithImpl(this._value, this._then);
+class _$CctvDiyStateCopyWithImpl<$Res, $Val extends CctvDiyState>
+    implements $CctvDiyStateCopyWith<$Res> {
+  _$CctvDiyStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$SearchMoviesStateCopyWithImpl<$Res, _$_Initial>
+    extends _$CctvDiyStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -108,13 +108,13 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchMoviesState.initial()';
+    return 'CctvDiyState.initial()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SearchMoviesState.initial'));
+    properties.add(DiagnosticsProperty('type', 'CctvDiyState.initial'));
   }
 
   @override
@@ -131,8 +131,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(SearchModel search) success,
+    required TResult Function(String error) error,
+    required TResult Function(CctvDataDiy cctvData) success,
   }) {
     return initial();
   }
@@ -142,8 +142,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(SearchModel search)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(CctvDataDiy cctvData)? success,
   }) {
     return initial?.call();
   }
@@ -153,8 +153,8 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(SearchModel search)? success,
+    TResult Function(String error)? error,
+    TResult Function(CctvDataDiy cctvData)? success,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,7 +201,7 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   }
 }
 
-abstract class _Initial implements SearchMoviesState {
+abstract class _Initial implements CctvDiyState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -214,7 +214,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$SearchMoviesStateCopyWithImpl<$Res, _$_Loading>
+    extends _$CctvDiyStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -227,13 +227,13 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchMoviesState.loading()';
+    return 'CctvDiyState.loading()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SearchMoviesState.loading'));
+    properties.add(DiagnosticsProperty('type', 'CctvDiyState.loading'));
   }
 
   @override
@@ -250,8 +250,8 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(SearchModel search) success,
+    required TResult Function(String error) error,
+    required TResult Function(CctvDataDiy cctvData) success,
   }) {
     return loading();
   }
@@ -261,8 +261,8 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(SearchModel search)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(CctvDataDiy cctvData)? success,
   }) {
     return loading?.call();
   }
@@ -272,8 +272,8 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(SearchModel search)? success,
+    TResult Function(String error)? error,
+    TResult Function(CctvDataDiy cctvData)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -320,7 +320,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   }
 }
 
-abstract class _Loading implements SearchMoviesState {
+abstract class _Loading implements CctvDiyState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -329,12 +329,12 @@ abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({String error});
 }
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$SearchMoviesStateCopyWithImpl<$Res, _$_Error>
+    extends _$CctvDiyStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -342,12 +342,12 @@ class __$$_ErrorCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? error = null,
   }) {
     return _then(_$_Error(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -356,22 +356,22 @@ class __$$_ErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Error with DiagnosticableTreeMixin implements _Error {
-  const _$_Error(this.message);
+  const _$_Error(this.error);
 
   @override
-  final String message;
+  final String error;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchMoviesState.error(message: $message)';
+    return 'CctvDiyState.error(error: $error)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SearchMoviesState.error'))
-      ..add(DiagnosticsProperty('message', message));
+      ..add(DiagnosticsProperty('type', 'CctvDiyState.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -379,11 +379,11 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
@@ -396,10 +396,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(SearchModel search) success,
+    required TResult Function(String error) error,
+    required TResult Function(CctvDataDiy cctvData) success,
   }) {
-    return error(message);
+    return error(this.error);
   }
 
   @override
@@ -407,10 +407,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(SearchModel search)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(CctvDataDiy cctvData)? success,
   }) {
-    return error?.call(message);
+    return error?.call(this.error);
   }
 
   @override
@@ -418,12 +418,12 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(SearchModel search)? success,
+    TResult Function(String error)? error,
+    TResult Function(CctvDataDiy cctvData)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(message);
+      return error(this.error);
     }
     return orElse();
   }
@@ -466,10 +466,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   }
 }
 
-abstract class _Error implements SearchMoviesState {
-  const factory _Error(final String message) = _$_Error;
+abstract class _Error implements CctvDiyState {
+  const factory _Error(final String error) = _$_Error;
 
-  String get message;
+  String get error;
   @JsonKey(ignore: true)
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       throw _privateConstructorUsedError;
@@ -481,14 +481,14 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({SearchModel search});
+  $Res call({CctvDataDiy cctvData});
 
-  $SearchModelCopyWith<$Res> get search;
+  $CctvDataDiyCopyWith<$Res> get cctvData;
 }
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$SearchMoviesStateCopyWithImpl<$Res, _$_Success>
+    extends _$CctvDiyStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
@@ -496,21 +496,21 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? search = null,
+    Object? cctvData = null,
   }) {
     return _then(_$_Success(
-      null == search
-          ? _value.search
-          : search // ignore: cast_nullable_to_non_nullable
-              as SearchModel,
+      null == cctvData
+          ? _value.cctvData
+          : cctvData // ignore: cast_nullable_to_non_nullable
+              as CctvDataDiy,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SearchModelCopyWith<$Res> get search {
-    return $SearchModelCopyWith<$Res>(_value.search, (value) {
-      return _then(_value.copyWith(search: value));
+  $CctvDataDiyCopyWith<$Res> get cctvData {
+    return $CctvDataDiyCopyWith<$Res>(_value.cctvData, (value) {
+      return _then(_value.copyWith(cctvData: value));
     });
   }
 }
@@ -518,22 +518,22 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success with DiagnosticableTreeMixin implements _Success {
-  const _$_Success(this.search);
+  const _$_Success(this.cctvData);
 
   @override
-  final SearchModel search;
+  final CctvDataDiy cctvData;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SearchMoviesState.success(search: $search)';
+    return 'CctvDiyState.success(cctvData: $cctvData)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'SearchMoviesState.success'))
-      ..add(DiagnosticsProperty('search', search));
+      ..add(DiagnosticsProperty('type', 'CctvDiyState.success'))
+      ..add(DiagnosticsProperty('cctvData', cctvData));
   }
 
   @override
@@ -541,11 +541,12 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.search, search) || other.search == search));
+            (identical(other.cctvData, cctvData) ||
+                other.cctvData == cctvData));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, search);
+  int get hashCode => Object.hash(runtimeType, cctvData);
 
   @JsonKey(ignore: true)
   @override
@@ -558,10 +559,10 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) error,
-    required TResult Function(SearchModel search) success,
+    required TResult Function(String error) error,
+    required TResult Function(CctvDataDiy cctvData) success,
   }) {
-    return success(search);
+    return success(cctvData);
   }
 
   @override
@@ -569,10 +570,10 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? error,
-    TResult? Function(SearchModel search)? success,
+    TResult? Function(String error)? error,
+    TResult? Function(CctvDataDiy cctvData)? success,
   }) {
-    return success?.call(search);
+    return success?.call(cctvData);
   }
 
   @override
@@ -580,12 +581,12 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? error,
-    TResult Function(SearchModel search)? success,
+    TResult Function(String error)? error,
+    TResult Function(CctvDataDiy cctvData)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(search);
+      return success(cctvData);
     }
     return orElse();
   }
@@ -628,10 +629,10 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   }
 }
 
-abstract class _Success implements SearchMoviesState {
-  const factory _Success(final SearchModel search) = _$_Success;
+abstract class _Success implements CctvDiyState {
+  const factory _Success(final CctvDataDiy cctvData) = _$_Success;
 
-  SearchModel get search;
+  CctvDataDiy get cctvData;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
