@@ -17,7 +17,6 @@ import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/common/services/http_override_cert.dart';
 import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
-import 'package:flutter_movie_app/features/cctv/models/cctv_data_diy.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
