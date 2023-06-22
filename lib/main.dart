@@ -21,6 +21,7 @@ import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_movie_app/core/deps/deps.dart';
 import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Future<void> main() async {
@@ -43,15 +44,15 @@ class MyApp extends StatelessWidget {
         statusBarColor: Colors.transparent));
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => PageCubit()),
-        BlocProvider(create: (_) => PopularmoviesCubit()..getPopularMovies()),
-        BlocProvider(create: (_) => NowplayingCubit()..getNowPlaying()),
-        BlocProvider(create: (_) => UpcomingCubit()..getUpcoming()),
-        BlocProvider(create: (_) => TopRatedCubit()..getTopRated()),
-        BlocProvider(create: (_) => SearchMoviesCubit()),
-        BlocProvider(create: (_) => DetailMoviesCubit()),
-        BlocProvider(create: (_) => CastCubit()),
-        BlocProvider(create: (_) => CctvDiyCubit()),
+        BlocProvider(create: (_) => GetIt.instance<PageCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<PopularmoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<NowplayingCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<UpcomingCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<TopRatedCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<SearchMoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<DetailMoviesCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<CastCubit>()),
+        BlocProvider(create: (_) => GetIt.instance<CctvDiyCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
