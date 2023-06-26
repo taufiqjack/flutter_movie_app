@@ -6,4 +6,8 @@ class AssetPath {
   static String png(String fileName) {
     return 'assets/png/$fileName.png';
   }
+
+  static String jpg(String fileName) {
+    return 'assets/jpg/$fileName.jpg';
+  }
 }

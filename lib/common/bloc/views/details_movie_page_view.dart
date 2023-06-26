@@ -5,6 +5,7 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart'
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/details_movie/detail_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
+import 'package:flutter_movie_app/common/constans/path_asset.dart';
 import 'package:flutter_movie_app/common/utils/embed_uri.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
@@ -97,12 +98,14 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                               imageUrl:
                                   '${RestContract.path}${details.backdropPath}',
                               errorWidget: (context, url, error) => Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        color: grey),
-                                    child: const Icon(Icons.error),
-                                  ),
+                                  width: MediaQuery.of(context).size.width,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      color: grey),
+                                  child: Image.asset(
+                                    AssetPath.jpg('no_image'),
+                                    fit: BoxFit.cover,
+                                  )),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -123,16 +126,15 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                 '${RestContract.path}${details.posterPath}',
                             height: 100,
                             errorWidget: (context, url, error) => Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: grey),
-                                  child: const Text(
-                                    'No Image Backdrop',
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
+                                width: 100,
+                                height: 100,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    color: grey),
+                                child: Image.asset(
+                                  AssetPath.jpg('no_image'),
+                                  fit: BoxFit.cover,
+                                )),
                             fit: BoxFit.fill),
                       ),
                     ),

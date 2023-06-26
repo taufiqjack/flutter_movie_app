@@ -6,6 +6,7 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/constans/path_asset.dart';
+import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -30,7 +31,9 @@ class _SearchPageViewState extends State<SearchPageView> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           leading: InkWell(
-            onTap: () {},
+            onTap: () {
+              router.go('/index');
+            },
             child: Icon(
               Icons.arrow_back_ios_new,
               color: white,
@@ -165,14 +168,17 @@ class _SearchPageViewState extends State<SearchPageView> {
                                                   errorWidget:
                                                       (context, url, error) {
                                                     return Container(
-                                                      decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(16),
-                                                          color: grey),
-                                                      child: const Icon(
-                                                          Icons.error),
-                                                    );
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                            color: grey),
+                                                        child: Image.asset(
+                                                          fit: BoxFit.cover,
+                                                          AssetPath.jpg(
+                                                              'no_image'),
+                                                        ));
                                                   },
                                                 ),
                                               ),
