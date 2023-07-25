@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/common/constans/path_asset.dart';
 import 'package:flutter_movie_app/common/utils/embed_uri.dart';
+import 'package:flutter_movie_app/core/hive/main_storage.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_movie_app/core/themes/texstyle.dart';
 import 'package:go_router/go_router.dart';
@@ -41,38 +43,49 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
     return Scaffold(
       backgroundColor: bluetwo,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          'Detail',
-          style: TextStyle(color: white),
-        ),
-        leading: InkWell(
-          onTap: () {
-            context.pop();
-          },
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: white,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: Text(
+            'Detail',
+            style: TextStyle(color: white),
           ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: InkWell(
-              onTap: () {
-                onSaved = !onSaved;
-                setState(() {});
-              },
-              child: Icon(
-                onSaved ? Icons.bookmark : Icons.bookmark_border,
-                color: white,
-              ),
+          leading: InkWell(
+            onTap: () {
+              context.pop();
+            },
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: white,
             ),
           ),
-        ],
-      ),
+          actions: [
+            BlocBuilder<DetailMoviesCubit, DetailMoviesState>(
+                builder: (context, state) {
+              return state.when(
+                  initial: () => const SizedBox(),
+                  loading: () => const SizedBox(),
+                  error: (message) => Center(
+                        child: Text(message),
+                      ),
+                  success: (details) => Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: InkWell(
+                          onTap: () {
+                            onSaved = !onSaved;
+                            setState(() {});
+                            !onSaved
+                                ? local.put('name', details.originalTitle)
+                                : null;
+                          },
+                          child: Icon(
+                            onSaved ? Icons.bookmark : Icons.bookmark_border,
+                            color: white,
+                          ),
+                        ),
+                      ));
+            })
+          ]),
       body: BlocBuilder<DetailMoviesCubit, DetailMoviesState>(
         builder: (context, state) {
           return state.when(
@@ -149,7 +162,14 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Icon(Icons.star_border, color: orange),
+                              InkWell(
+                                onTap: () async {
+                                  if (kDebugMode) {
+                                    print('cek ${local.get('name')}');
+                                  }
+                                },
+                                child: Icon(Icons.star_border, color: orange),
+                              ),
                               Text(
                                 '${details.voteAverage!}',
                                 style: TextStyles.rating,
@@ -268,41 +288,37 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                       setState(() {});
                     },
                     itemBuilder: (context, index) {
-                      return selected == 1
-                          ? Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 0, top: 10, right: 20),
-                              child: Text(
+                      return Padding(
+                        padding:
+                            const EdgeInsets.only(left: 0, top: 10, right: 20),
+                        child: selected == 1
+                            ? Text(
                                 '${details.overview}',
                                 style: TextStyles.title,
-                              ),
-                            )
-                          : BlocBuilder<CastCubit, CastState>(
-                              builder: (context, state) => state.when(
-                                initial: () => const BuildLoadingWidget(),
-                                loading: () => const BuildLoadingWidget(),
-                                error: (message) => Center(
-                                  child: Text(message),
-                                ),
-                                success: (cast) => SizedBox(
-                                  height:
-                                      MediaQuery.of(context).size.height / 2,
-                                  child: GridView.builder(
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 3),
-                                    itemCount: cast.cast!.length,
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index) {
-                                      var casting = cast.cast![index];
-                                      return Card(
-                                        margin: const EdgeInsets.only(
-                                            top: 10, left: 20, right: 20),
-                                        color: Colors.transparent,
-                                        elevation: 0,
-                                        child: Column(
+                              )
+                            : BlocBuilder<CastCubit, CastState>(
+                                builder: (context, state) => state.when(
+                                  initial: () => const BuildLoadingWidget(),
+                                  loading: () => const BuildLoadingWidget(),
+                                  error: (message) => Center(
+                                    child: Text(message),
+                                  ),
+                                  success: (cast) => SizedBox(
+                                    height:
+                                        MediaQuery.of(context).size.height / 2,
+                                    child: GridView.builder(
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                              crossAxisCount: 3,
+                                              mainAxisSpacing: 15,
+                                              childAspectRatio: 0.95),
+                                      itemCount: cast.cast!.length,
+                                      shrinkWrap: true,
+                                      itemBuilder: (context, index) {
+                                        var casting = cast.cast![index];
+                                        return Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
+                                              MainAxisAlignment.start,
                                           children: [
                                             InkWell(
                                               onTap: () {
@@ -318,8 +334,7 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                                     shape: BoxShape.circle),
                                                 child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          100),
+                                                      BorderRadius.circular(50),
                                                   child: CachedNetworkImage(
                                                     fit: BoxFit.cover,
                                                     imageUrl:
@@ -341,19 +356,18 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                                     errorWidget:
                                                         (context, url, error) {
                                                       return Container(
-                                                        height: 80,
-                                                        width: 80,
-                                                        decoration: BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50),
-                                                            color: grey),
-                                                        child: const Center(
-                                                          child:
-                                                              Text('No image'),
-                                                        ),
-                                                      );
+                                                          height: 80,
+                                                          width: 80,
+                                                          decoration: BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          50),
+                                                              color: grey),
+                                                          child: Image.asset(
+                                                            'assets/jpg/no_image.jpg',
+                                                            fit: BoxFit.cover,
+                                                          ));
                                                     },
                                                   ),
                                                 ),
@@ -366,6 +380,8 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                               // ),
                                             ),
                                             Flexible(
+                                              flex: 1,
+                                              fit: FlexFit.loose,
                                               child: Text(
                                                 '${casting.name}',
                                                 style: TextStyle(color: white),
@@ -373,13 +389,13 @@ class _DetailsMoviePageViewState extends State<DetailsMoviePageView> {
                                               ),
                                             ),
                                           ],
-                                        ),
-                                      );
-                                    },
+                                        );
+                                      },
+                                    ),
                                   ),
                                 ),
                               ),
-                            );
+                      );
                     },
                   ),
                 )

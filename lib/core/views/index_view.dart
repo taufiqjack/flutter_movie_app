@@ -4,6 +4,7 @@ import 'package:flutter_movie_app/common/bloc/views/home_page_view.dart';
 import 'package:flutter_movie_app/common/bloc/views/search_page_view.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/views/watch_list_view.dart';
+import 'package:flutter_movie_app/core/widgets/bottom_bar_widget.dart';
 
 class IndexView extends StatefulWidget {
   const IndexView({super.key});
@@ -43,22 +44,26 @@ class _IndexViewState extends State<IndexView> {
             child: Container(
               decoration:
                   BoxDecoration(border: Border(top: BorderSide(color: blue))),
-              child: BottomNavigationBar(
+              child: BottomBarWidget(
                 backgroundColor: bluetwo,
-                items: const [
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.menu), label: 'Home'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.search), label: 'Search'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.label_important_outline_sharp),
-                      label: 'Watch list'),
+                items: [
+                  BottomBarItem(
+                    icon: const Icon(Icons.menu),
+                    title: const Text('Home'),
+                  ),
+                  BottomBarItem(
+                    icon: const Icon(Icons.search),
+                    title: const Text('Search'),
+                  ),
+                  BottomBarItem(
+                    icon: const Icon(Icons.label_important_outline_sharp),
+                    title: const Text('Watch list'),
+                  ),
                 ],
                 currentIndex: selectedIndex,
                 selectedItemColor: blue,
                 unselectedItemColor: white,
                 onTap: onItemTapped,
-                elevation: 0.0,
               ),
             ),
           ),
