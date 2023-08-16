@@ -1,40 +1,47 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 part 'movie_detail_model.freezed.dart';
 part 'movie_detail_model.g.dart';
 
 @Freezed()
+@HiveType(typeId: 2, adapterName: 'MovieDetailDataAdapter')
 class MovieDetailModel with _$MovieDetailModel {
   const factory MovieDetailModel({
-    bool? adult,
-    @JsonKey(name: 'backdrop_path') String? backdropPath,
+    @HiveField(0) bool? adult,
+    @HiveField(1) @JsonKey(name: 'backdrop_path') String? backdropPath,
+    @HiveField(2)
     @JsonKey(name: 'belongs_to_collection')
         BelongsToCollection? belongsToCollection,
-    int? budget,
-    List<Genre>? genres,
-    String? homepage,
-    int? id,
-    @JsonKey(name: 'imdb_id') String? imdbId,
-    @JsonKey(name: 'original_language') String? originalLanguage,
-    @JsonKey(name: 'original_title') String? originalTitle,
-    String? overview,
-    double? popularity,
-    @JsonKey(name: 'poster_path') String? posterPath,
+    @HiveField(3) int? budget,
+    @HiveField(4) List<Genre>? genres,
+    @HiveField(5) String? homepage,
+    @HiveField(6) int? id,
+    @HiveField(7) @JsonKey(name: 'imdb_id') String? imdbId,
+    @HiveField(8) @JsonKey(name: 'original_language') String? originalLanguage,
+    @HiveField(9) @JsonKey(name: 'original_title') String? originalTitle,
+    @HiveField(10) String? overview,
+    @HiveField(11) double? popularity,
+    @HiveField(12) @JsonKey(name: 'poster_path') String? posterPath,
+    @HiveField(13)
     @JsonKey(name: 'production_company')
         List<ProductionCompany>? productionCompany,
+    @HiveField(14)
     @JsonKey(name: 'production_countries')
         List<ProductionCountries>? productionCountry,
-    @JsonKey(name: 'release_date') DateTime? releaseDate,
-    int? revenue,
-    int? runtime,
-    @JsonKey(name: 'spoken_language') List<SpokenLanguage>? spokenLanguage,
-    String? status,
-    String? tagline,
-    String? title,
-    bool? video,
-    @JsonKey(name: 'vote_average') double? voteAverage,
-    @JsonKey(name: 'vote_count') int? voteCount,
+    @HiveField(15) @JsonKey(name: 'release_date') DateTime? releaseDate,
+    @HiveField(16) int? revenue,
+    @HiveField(17) int? runtime,
+    @HiveField(18)
+    @JsonKey(name: 'spoken_language')
+        List<SpokenLanguage>? spokenLanguage,
+    @HiveField(19) String? status,
+    @HiveField(20) String? tagline,
+    @HiveField(21) String? title,
+    @HiveField(22) bool? video,
+    @HiveField(23) @JsonKey(name: 'vote_average') double? voteAverage,
+    @HiveField(24) @JsonKey(name: 'vote_count') int? voteCount,
   }) = _MovieDetailModel;
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) =>

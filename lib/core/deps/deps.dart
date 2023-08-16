@@ -54,12 +54,10 @@ class Deps {
     getit.registerSingleton<RestContract>(RestContract());
     getit.registerSingleton(PageCubit());
     getit.registerSingleton(SearchMoviesCubit());
-    getit.registerSingleton<PopularmoviesCubit>(
-        PopularmoviesCubit()..getPopularMovies());
-    getit
-        .registerSingleton<NowplayingCubit>(NowplayingCubit()..getNowPlaying());
-    getit.registerSingleton<UpcomingCubit>(UpcomingCubit()..getUpcoming());
-    getit.registerSingleton<TopRatedCubit>(TopRatedCubit()..getTopRated());
+    getit.registerSingleton<PopularmoviesCubit>(PopularmoviesCubit());
+    getit.registerSingleton<NowplayingCubit>(NowplayingCubit());
+    getit.registerSingleton<UpcomingCubit>(UpcomingCubit());
+    getit.registerSingleton<TopRatedCubit>(TopRatedCubit());
     getit.registerSingleton(DetailMoviesCubit());
     getit.registerSingleton(CastCubit());
     getit.registerSingleton(CctvDiyCubit());

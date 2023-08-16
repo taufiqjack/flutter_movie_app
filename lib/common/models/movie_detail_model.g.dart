@@ -5,6 +5,116 @@
 part of 'movie_detail_model.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class MovieDetailDataAdapter extends TypeAdapter<MovieDetailModel> {
+  @override
+  final int typeId = 2;
+
+  @override
+  MovieDetailModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return MovieDetailModel(
+      adult: fields[0] as bool?,
+      backdropPath: fields[1] as String?,
+      belongsToCollection: fields[2] as BelongsToCollection?,
+      budget: fields[3] as int?,
+      genres: (fields[4] as List?)?.cast<Genre>(),
+      homepage: fields[5] as String?,
+      id: fields[6] as int?,
+      imdbId: fields[7] as String?,
+      originalLanguage: fields[8] as String?,
+      originalTitle: fields[9] as String?,
+      overview: fields[10] as String?,
+      popularity: fields[11] as double?,
+      posterPath: fields[12] as String?,
+      productionCompany: (fields[13] as List?)?.cast<ProductionCompany>(),
+      productionCountry: (fields[14] as List?)?.cast<ProductionCountries>(),
+      releaseDate: fields[15] as DateTime?,
+      revenue: fields[16] as int?,
+      runtime: fields[17] as int?,
+      spokenLanguage: (fields[18] as List?)?.cast<SpokenLanguage>(),
+      status: fields[19] as String?,
+      tagline: fields[20] as String?,
+      title: fields[21] as String?,
+      video: fields[22] as bool?,
+      voteAverage: fields[23] as double?,
+      voteCount: fields[24] as int?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, MovieDetailModel obj) {
+    writer
+      ..writeByte(25)
+      ..writeByte(0)
+      ..write(obj.adult)
+      ..writeByte(1)
+      ..write(obj.backdropPath)
+      ..writeByte(2)
+      ..write(obj.belongsToCollection)
+      ..writeByte(3)
+      ..write(obj.budget)
+      ..writeByte(4)
+      ..write(obj.genres)
+      ..writeByte(5)
+      ..write(obj.homepage)
+      ..writeByte(6)
+      ..write(obj.id)
+      ..writeByte(7)
+      ..write(obj.imdbId)
+      ..writeByte(8)
+      ..write(obj.originalLanguage)
+      ..writeByte(9)
+      ..write(obj.originalTitle)
+      ..writeByte(10)
+      ..write(obj.overview)
+      ..writeByte(11)
+      ..write(obj.popularity)
+      ..writeByte(12)
+      ..write(obj.posterPath)
+      ..writeByte(13)
+      ..write(obj.productionCompany)
+      ..writeByte(14)
+      ..write(obj.productionCountry)
+      ..writeByte(15)
+      ..write(obj.releaseDate)
+      ..writeByte(16)
+      ..write(obj.revenue)
+      ..writeByte(17)
+      ..write(obj.runtime)
+      ..writeByte(18)
+      ..write(obj.spokenLanguage)
+      ..writeByte(19)
+      ..write(obj.status)
+      ..writeByte(20)
+      ..write(obj.tagline)
+      ..writeByte(21)
+      ..write(obj.title)
+      ..writeByte(22)
+      ..write(obj.video)
+      ..writeByte(23)
+      ..write(obj.voteAverage)
+      ..writeByte(24)
+      ..write(obj.voteCount);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is MovieDetailDataAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

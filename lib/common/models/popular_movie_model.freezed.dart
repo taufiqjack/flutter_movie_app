@@ -239,26 +239,40 @@ Results _$ResultsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Results {
+  @HiveField(0)
   bool? get adult => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(name: 'genre_ids')
   List<int>? get genreIds => throw _privateConstructorUsedError;
+  @HiveField(3)
   int? get id => throw _privateConstructorUsedError;
+  @HiveField(4)
   @JsonKey(name: 'original_language')
   String? get originalLanguage => throw _privateConstructorUsedError;
+  @HiveField(5)
   @JsonKey(name: 'original_title')
   String? get originalTitle => throw _privateConstructorUsedError;
+  @HiveField(6)
   String? get overview => throw _privateConstructorUsedError;
+  @HiveField(7)
   double? get popularity => throw _privateConstructorUsedError;
+  @HiveField(8)
   @JsonKey(name: 'poster_path')
   String? get posterPath => throw _privateConstructorUsedError;
+  @HiveField(9)
   @JsonKey(name: 'release_date')
   DateTime? get releaseDate => throw _privateConstructorUsedError;
+  @HiveField(10)
   String? get title => throw _privateConstructorUsedError;
+  @HiveField(11)
   bool? get video => throw _privateConstructorUsedError;
+  @HiveField(12)
   @JsonKey(name: 'vote_average')
   double? get voteAverage => throw _privateConstructorUsedError;
+  @HiveField(13)
   @JsonKey(name: 'vote_count')
   int? get voteCount => throw _privateConstructorUsedError;
 
@@ -273,20 +287,42 @@ abstract class $ResultsCopyWith<$Res> {
       _$ResultsCopyWithImpl<$Res, Results>;
   @useResult
   $Res call(
-      {bool? adult,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
-      int? id,
-      @JsonKey(name: 'original_language') String? originalLanguage,
-      @JsonKey(name: 'original_title') String? originalTitle,
-      String? overview,
-      double? popularity,
-      @JsonKey(name: 'poster_path') String? posterPath,
-      @JsonKey(name: 'release_date') DateTime? releaseDate,
-      String? title,
-      bool? video,
-      @JsonKey(name: 'vote_average') double? voteAverage,
-      @JsonKey(name: 'vote_count') int? voteCount});
+      {@HiveField(0)
+          bool? adult,
+      @HiveField(1)
+      @JsonKey(name: 'backdrop_path')
+          String? backdropPath,
+      @HiveField(2)
+      @JsonKey(name: 'genre_ids')
+          List<int>? genreIds,
+      @HiveField(3)
+          int? id,
+      @HiveField(4)
+      @JsonKey(name: 'original_language')
+          String? originalLanguage,
+      @HiveField(5)
+      @JsonKey(name: 'original_title')
+          String? originalTitle,
+      @HiveField(6)
+          String? overview,
+      @HiveField(7)
+          double? popularity,
+      @HiveField(8)
+      @JsonKey(name: 'poster_path')
+          String? posterPath,
+      @HiveField(9)
+      @JsonKey(name: 'release_date')
+          DateTime? releaseDate,
+      @HiveField(10)
+          String? title,
+      @HiveField(11)
+          bool? video,
+      @HiveField(12)
+      @JsonKey(name: 'vote_average')
+          double? voteAverage,
+      @HiveField(13)
+      @JsonKey(name: 'vote_count')
+          int? voteCount});
 }
 
 /// @nodoc
@@ -386,20 +422,42 @@ abstract class _$$_ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {bool? adult,
-      @JsonKey(name: 'backdrop_path') String? backdropPath,
-      @JsonKey(name: 'genre_ids') List<int>? genreIds,
-      int? id,
-      @JsonKey(name: 'original_language') String? originalLanguage,
-      @JsonKey(name: 'original_title') String? originalTitle,
-      String? overview,
-      double? popularity,
-      @JsonKey(name: 'poster_path') String? posterPath,
-      @JsonKey(name: 'release_date') DateTime? releaseDate,
-      String? title,
-      bool? video,
-      @JsonKey(name: 'vote_average') double? voteAverage,
-      @JsonKey(name: 'vote_count') int? voteCount});
+      {@HiveField(0)
+          bool? adult,
+      @HiveField(1)
+      @JsonKey(name: 'backdrop_path')
+          String? backdropPath,
+      @HiveField(2)
+      @JsonKey(name: 'genre_ids')
+          List<int>? genreIds,
+      @HiveField(3)
+          int? id,
+      @HiveField(4)
+      @JsonKey(name: 'original_language')
+          String? originalLanguage,
+      @HiveField(5)
+      @JsonKey(name: 'original_title')
+          String? originalTitle,
+      @HiveField(6)
+          String? overview,
+      @HiveField(7)
+          double? popularity,
+      @HiveField(8)
+      @JsonKey(name: 'poster_path')
+          String? posterPath,
+      @HiveField(9)
+      @JsonKey(name: 'release_date')
+          DateTime? releaseDate,
+      @HiveField(10)
+          String? title,
+      @HiveField(11)
+          bool? video,
+      @HiveField(12)
+      @JsonKey(name: 'vote_average')
+          double? voteAverage,
+      @HiveField(13)
+      @JsonKey(name: 'vote_count')
+          int? voteCount});
 }
 
 /// @nodoc
@@ -492,32 +550,35 @@ class __$$_ResultsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Results implements _Results {
   const _$_Results(
-      {this.adult,
-      @JsonKey(name: 'backdrop_path') this.backdropPath,
-      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
-      this.id,
-      @JsonKey(name: 'original_language') this.originalLanguage,
-      @JsonKey(name: 'original_title') this.originalTitle,
-      this.overview,
-      this.popularity,
-      @JsonKey(name: 'poster_path') this.posterPath,
-      @JsonKey(name: 'release_date') this.releaseDate,
-      this.title,
-      this.video,
-      @JsonKey(name: 'vote_average') this.voteAverage,
-      @JsonKey(name: 'vote_count') this.voteCount})
+      {@HiveField(0) this.adult,
+      @HiveField(1) @JsonKey(name: 'backdrop_path') this.backdropPath,
+      @HiveField(2) @JsonKey(name: 'genre_ids') final List<int>? genreIds,
+      @HiveField(3) this.id,
+      @HiveField(4) @JsonKey(name: 'original_language') this.originalLanguage,
+      @HiveField(5) @JsonKey(name: 'original_title') this.originalTitle,
+      @HiveField(6) this.overview,
+      @HiveField(7) this.popularity,
+      @HiveField(8) @JsonKey(name: 'poster_path') this.posterPath,
+      @HiveField(9) @JsonKey(name: 'release_date') this.releaseDate,
+      @HiveField(10) this.title,
+      @HiveField(11) this.video,
+      @HiveField(12) @JsonKey(name: 'vote_average') this.voteAverage,
+      @HiveField(13) @JsonKey(name: 'vote_count') this.voteCount})
       : _genreIds = genreIds;
 
   factory _$_Results.fromJson(Map<String, dynamic> json) =>
       _$$_ResultsFromJson(json);
 
   @override
+  @HiveField(0)
   final bool? adult;
   @override
+  @HiveField(1)
   @JsonKey(name: 'backdrop_path')
   final String? backdropPath;
   final List<int>? _genreIds;
   @override
+  @HiveField(2)
   @JsonKey(name: 'genre_ids')
   List<int>? get genreIds {
     final value = _genreIds;
@@ -527,31 +588,42 @@ class _$_Results implements _Results {
   }
 
   @override
+  @HiveField(3)
   final int? id;
   @override
+  @HiveField(4)
   @JsonKey(name: 'original_language')
   final String? originalLanguage;
   @override
+  @HiveField(5)
   @JsonKey(name: 'original_title')
   final String? originalTitle;
   @override
+  @HiveField(6)
   final String? overview;
   @override
+  @HiveField(7)
   final double? popularity;
   @override
+  @HiveField(8)
   @JsonKey(name: 'poster_path')
   final String? posterPath;
   @override
+  @HiveField(9)
   @JsonKey(name: 'release_date')
   final DateTime? releaseDate;
   @override
+  @HiveField(10)
   final String? title;
   @override
+  @HiveField(11)
   final bool? video;
   @override
+  @HiveField(12)
   @JsonKey(name: 'vote_average')
   final double? voteAverage;
   @override
+  @HiveField(13)
   @JsonKey(name: 'vote_count')
   final int? voteCount;
 
@@ -625,57 +697,93 @@ class _$_Results implements _Results {
 
 abstract class _Results implements Results {
   const factory _Results(
-      {final bool? adult,
-      @JsonKey(name: 'backdrop_path') final String? backdropPath,
-      @JsonKey(name: 'genre_ids') final List<int>? genreIds,
-      final int? id,
-      @JsonKey(name: 'original_language') final String? originalLanguage,
-      @JsonKey(name: 'original_title') final String? originalTitle,
-      final String? overview,
-      final double? popularity,
-      @JsonKey(name: 'poster_path') final String? posterPath,
-      @JsonKey(name: 'release_date') final DateTime? releaseDate,
-      final String? title,
-      final bool? video,
-      @JsonKey(name: 'vote_average') final double? voteAverage,
-      @JsonKey(name: 'vote_count') final int? voteCount}) = _$_Results;
+      {@HiveField(0)
+          final bool? adult,
+      @HiveField(1)
+      @JsonKey(name: 'backdrop_path')
+          final String? backdropPath,
+      @HiveField(2)
+      @JsonKey(name: 'genre_ids')
+          final List<int>? genreIds,
+      @HiveField(3)
+          final int? id,
+      @HiveField(4)
+      @JsonKey(name: 'original_language')
+          final String? originalLanguage,
+      @HiveField(5)
+      @JsonKey(name: 'original_title')
+          final String? originalTitle,
+      @HiveField(6)
+          final String? overview,
+      @HiveField(7)
+          final double? popularity,
+      @HiveField(8)
+      @JsonKey(name: 'poster_path')
+          final String? posterPath,
+      @HiveField(9)
+      @JsonKey(name: 'release_date')
+          final DateTime? releaseDate,
+      @HiveField(10)
+          final String? title,
+      @HiveField(11)
+          final bool? video,
+      @HiveField(12)
+      @JsonKey(name: 'vote_average')
+          final double? voteAverage,
+      @HiveField(13)
+      @JsonKey(name: 'vote_count')
+          final int? voteCount}) = _$_Results;
 
   factory _Results.fromJson(Map<String, dynamic> json) = _$_Results.fromJson;
 
   @override
+  @HiveField(0)
   bool? get adult;
   @override
+  @HiveField(1)
   @JsonKey(name: 'backdrop_path')
   String? get backdropPath;
   @override
+  @HiveField(2)
   @JsonKey(name: 'genre_ids')
   List<int>? get genreIds;
   @override
+  @HiveField(3)
   int? get id;
   @override
+  @HiveField(4)
   @JsonKey(name: 'original_language')
   String? get originalLanguage;
   @override
+  @HiveField(5)
   @JsonKey(name: 'original_title')
   String? get originalTitle;
   @override
+  @HiveField(6)
   String? get overview;
   @override
+  @HiveField(7)
   double? get popularity;
   @override
+  @HiveField(8)
   @JsonKey(name: 'poster_path')
   String? get posterPath;
   @override
+  @HiveField(9)
   @JsonKey(name: 'release_date')
   DateTime? get releaseDate;
   @override
+  @HiveField(10)
   String? get title;
   @override
+  @HiveField(11)
   bool? get video;
   @override
+  @HiveField(12)
   @JsonKey(name: 'vote_average')
   double? get voteAverage;
   @override
+  @HiveField(13)
   @JsonKey(name: 'vote_count')
   int? get voteCount;
   @override

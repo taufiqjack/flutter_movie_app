@@ -26,6 +26,13 @@ class TopRatedWidget extends StatefulWidget {
 }
 
 class _TopRatedWidgetState extends State<TopRatedWidget> {
+  TopRatedCubit topRated = TopRatedCubit();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopRatedCubit, TopRatedState>(builder: (context, state) {

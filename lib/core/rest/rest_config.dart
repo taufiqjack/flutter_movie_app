@@ -1,7 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class RestConfig {
+class  
+RestConfig {
   static BaseOptions options() => BaseOptions(
         baseUrl: '${dotenv.env['BASE_URL']}',
         connectTimeout: 10000,

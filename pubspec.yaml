@@ -43,6 +43,9 @@ dependencies:
   chewie: ^1.5.0
   easy_localization: ^3.0.2
   chucker_flutter: ^1.4.2
+  hive_generator: ^2.0.0
+  hive_flutter: ^1.1.0
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:

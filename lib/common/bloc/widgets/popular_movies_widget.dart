@@ -1,7 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/nowplaying/nowplaying_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovies_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
+import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/widgets/loading_widget.dart';
 import 'package:flutter_movie_app/common/constans/custom_color.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
@@ -25,6 +28,20 @@ class PopularMoviesWidget extends StatefulWidget {
 }
 
 class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
+  PopularmoviesCubit popularmovies = PopularmoviesCubit();
+  NowplayingCubit nowplaying = NowplayingCubit();
+  UpcomingCubit upcoming = UpcomingCubit();
+  TopRatedCubit topRated = TopRatedCubit();
+
+  @override
+  void initState() {
+    popularmovies = context.read<PopularmoviesCubit>()..getPopularMovies();
+    nowplaying = context.read<NowplayingCubit>()..getNowPlaying();
+    upcoming = context.read<UpcomingCubit>()..getUpcoming();
+    topRated = context.read<TopRatedCubit>()..getTopRated();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PopularmoviesCubit, PopularmoviesState>(

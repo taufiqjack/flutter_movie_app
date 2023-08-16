@@ -29,6 +29,11 @@ class NowPLayingWidget extends StatefulWidget {
 
 class _NowPLayingWidgetState extends State<NowPLayingWidget> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<NowplayingCubit, NowplayingState>(
       builder: (context, state) {

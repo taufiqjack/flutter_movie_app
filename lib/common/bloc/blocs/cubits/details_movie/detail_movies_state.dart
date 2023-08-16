@@ -1,6 +1,6 @@
 part of 'detail_movies_cubit.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class DetailMoviesState with _$DetailMoviesState {
   const factory DetailMoviesState.initial() = _Initial;
   const factory DetailMoviesState.loading() = _Loading;

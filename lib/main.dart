@@ -1,8 +1,6 @@
 import 'dart:io';
 
-import 'package:chucker_flutter/chucker_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +17,7 @@ import 'package:flutter_movie_app/common/routes/route.dart';
 import 'package:flutter_movie_app/common/services/http_override_cert.dart';
 import 'package:flutter_movie_app/core/constants/constant.dart';
 import 'package:flutter_movie_app/core/deps/deps.dart';
+import 'package:flutter_movie_app/core/hive/hive_stuff.dart';
 import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -27,6 +26,7 @@ import 'package:google_fonts/google_fonts.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  HiveStuff.init();
   await dotenv.load(fileName: ENV_PATH);
   Deps.init();
   HttpOverrides.global = HttpOverriderCert();

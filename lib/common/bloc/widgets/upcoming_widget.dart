@@ -26,6 +26,13 @@ class UpcomingWidget extends StatefulWidget {
 }
 
 class _UpcomingWidgetState extends State<UpcomingWidget> {
+  UpcomingCubit upcoming = UpcomingCubit();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpcomingCubit, UpcomingState>(builder: (context, state) {

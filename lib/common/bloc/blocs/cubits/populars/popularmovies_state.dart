@@ -1,6 +1,6 @@
 part of 'popularmovies_cubit.dart';
 
-@Freezed()
+@Freezed(makeCollectionsUnmodifiable: false)
 class PopularmoviesState with _$PopularmoviesState {
   const factory PopularmoviesState.initial() = _Initial;
   const factory PopularmoviesState.loading() = _Loading;
