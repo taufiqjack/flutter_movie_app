@@ -21,7 +21,7 @@ class MovieRepository {
 
       var map = response.data;
       return PopularMovieModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       final errorMessage = DioExceptions.fromDioError(e).toString();
       throw errorMessage;
     }
@@ -32,7 +32,7 @@ class MovieRepository {
       var response = await _restContract.getDetailMovie(id);
       var map = response.data;
       return MovieDetailModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -46,7 +46,7 @@ class MovieRepository {
 
       var map = response.data;
       return NowPlayingModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -60,7 +60,7 @@ class MovieRepository {
 
       var map = response.data;
       return TopRatedModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print('error $e');
       }
@@ -74,7 +74,7 @@ class MovieRepository {
 
       var map = response.data;
       return UpcomingModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print('error $e');
       }
@@ -91,7 +91,7 @@ class MovieRepository {
         print('search : $map');
       }
       return SearchModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -104,7 +104,7 @@ class MovieRepository {
       var response = await _restContract.getDetails(id);
       var map = response.data;
       return MovieDetailModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -118,7 +118,7 @@ class MovieRepository {
 
       var map = response.data;
       return CastModel.fromJson(map);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print('error $e');
       }
@@ -131,7 +131,7 @@ class MovieRepository {
       var response = await _restContract.getCcctvData();
       var data = response.data;
       return CctvDataDiy.fromJson(data);
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       if (kDebugMode) {
         print('error $e');
       }

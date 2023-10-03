@@ -16,7 +16,7 @@ class NowPlayingBloc extends Bloc<NowPlayingEvent, NowPlayingState> {
         emit(NowPlayingLoading());
         final mList = await _rest.getNowPlaying();
         emit(NowPlayingLoaded(mList!));
-      } on DioError {
+      } on DioException {
         emit(const NowPlayingError(
             'Failed get data. Check the Internet connection'));
       }

@@ -16,7 +16,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(HomeLoading());
         final mList = await _rest.getPopularMovie();
         emit(HomeLoaded(mList!));
-      } on DioError {
+      } on DioException {
         emit(const HomeError('Failed get data. Check the Internet connection'));
       }
     });
