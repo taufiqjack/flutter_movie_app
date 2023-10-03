@@ -16,8 +16,8 @@ class WatchListView extends StatefulWidget {
 }
 
 class _WatchListViewState extends State<WatchListView> {
-  final videoController = VideoPlayerController.network(
-      'https://mam.jogjaprov.go.id:1937/atcs-kota/KMNol.stream/chunklist_w1508605635.m3u8');
+  final videoController = VideoPlayerController.networkUrl(Uri.parse(
+      'https://mam.jogjaprov.go.id:1937/atcs-kota/KMNol.stream/chunklist_w1508605635.m3u8'));
 
   ChewieController? chewieController;
   @override

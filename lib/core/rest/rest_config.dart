@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class  
-RestConfig {
+class RestConfig {
   static BaseOptions options() => BaseOptions(
         baseUrl: '${dotenv.env['BASE_URL']}',
-        connectTimeout: 10000,
-        receiveTimeout: 10000,
+        connectTimeout: const Duration(milliseconds: 10000),
+        receiveTimeout: const Duration(milliseconds: 10000),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',

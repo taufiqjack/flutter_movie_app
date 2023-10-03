@@ -16,7 +16,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
         emit(SearchLoading());
         var mList = await _rest.getSearch(event.word, event.page);
         emit(SearchLoaded(mList!));
-      } on DioError {
+      } on DioException {
         'Failed get data, please check Internet Connection!';
       }
     });

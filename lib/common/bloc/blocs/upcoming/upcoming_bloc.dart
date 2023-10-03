@@ -16,7 +16,7 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
         emit(UpcomingLoading());
         final mList = await _rest.getUpcoming();
         emit(UpcomingLoaded(mList!));
-      } on DioError {
+      } on DioException {
         emit(const UpcomingError(
             'Failed get data. Check the Internet connection'));
       }

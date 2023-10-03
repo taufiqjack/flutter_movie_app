@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:chucker_flutter/chucker_flutter.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,10 +29,18 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   HiveStuff.init();
+  _initChucker();
   await dotenv.load(fileName: ENV_PATH);
   Deps.init();
   HttpOverrides.global = HttpOverriderCert();
   runApp(const ProviderScope(child: MyApp()));
+}
+
+void _initChucker() {
+  if (!kIsWeb && kDebugMode) {
+    ChuckerFlutter.showOnRelease = false;
+    ChuckerFlutter.withLocalNotification();
+  }
 }
 
 class MyApp extends StatelessWidget {

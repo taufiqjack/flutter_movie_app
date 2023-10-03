@@ -9,6 +9,7 @@ import 'package:flutter_movie_app/common/bloc/blocs/cubits/populars/popularmovie
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/search_movies/search_movies_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/top_rated/top_rated_cubit.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/upcoming/upcoming_cubit.dart';
+import 'package:flutter_movie_app/core/rest/network_interuptor.dart';
 import 'package:flutter_movie_app/core/rest/rest_config.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
@@ -44,6 +45,8 @@ class Deps {
         ),
       );
     }
+    interuptors.add(NetworkInterceptor());
+
     if (!kIsWeb) {
       interuptors.add(GetIt.instance<ChuckerDioInterceptor>());
     }

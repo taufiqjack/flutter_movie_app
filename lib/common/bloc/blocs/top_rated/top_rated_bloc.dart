@@ -15,7 +15,7 @@ class TopRatedBloc extends Bloc<TopRatedEvent, TopRatedState> {
         emit(TopRateLoading());
         final mList = await _rest.getTopRated();
         emit(TopRateLoaded(mList!));
-      } on DioError {
+      } on DioException {
         emit(const TopRateError(
             'Failed get data. Check the Internet connection'));
       }
