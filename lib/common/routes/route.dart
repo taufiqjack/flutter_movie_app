@@ -1,10 +1,13 @@
+import 'package:alice/alice.dart';
 import 'package:flutter_movie_app/common/bloc/views/details_movie_page_view.dart';
 import 'package:flutter_movie_app/common/bloc/views/home_page_view.dart';
+import 'package:flutter_movie_app/core/deps/deps.dart';
 import 'package:flutter_movie_app/core/views/index_view.dart';
 import 'package:flutter_movie_app/core/views/splash_view.dart';
 import 'package:flutter_movie_app/core/views/test_view.dart';
 import 'package:go_router/go_router.dart';
 
+var alice = getit<Alice>();
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
@@ -22,7 +25,7 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: ':id',
           builder: (context, state) {
-            var id = int.parse(state.params['id']!);
+            var id = int.parse(state.pathParameters['id']!);
             // return DetailMovieView(id: id);
             return DetailsMoviePageView(id: id);
           },

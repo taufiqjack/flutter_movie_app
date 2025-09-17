@@ -58,47 +58,60 @@ class _WatchListViewState extends State<WatchListView> {
             left: 20,
             right: 20,
           ),
-          child: moviesDetail?.get(MOVIESDETAIL) != null
-              ? Text(
-                  '${moviesDetail!.get(MOVIESDETAIL)}',
-                  style: TextStyle(color: white),
-                )
-              : BlocBuilder<CctvDiyCubit, CctvDiyState>(
-                  bloc: CctvDiyCubit()..getCcTv(),
-                  builder: (context, state) {
-                    return state.when(
-                      initial: () => const BuildLoadingWidget(),
-                      loading: () => const BuildLoadingWidget(),
-                      error: (error) => Center(
-                        child: Text(
-                          error,
-                          style: TextStyle(color: white),
-                        ),
-                      ),
-                      success: (cctvData) => Column(
-                        children: [
-                          SizedBox(
-                            height: 300,
-                            child: ListView.builder(
-                              itemCount: cctvData.data!.length,
-                              itemBuilder: (context, index) => Text(
-                                '${cctvData.data![index].links!.self}',
-                                style: TextStyle(color: white),
-                              ),
+          child: Wrap(
+            children: [
+              /*  moviesDetail?.get(MOVIESDETAIL) != null
+                  ? Text(
+                      '${moviesDetail!.get(MOVIESDETAIL)}',
+                      style: TextStyle(color: white),
+                    )
+                  : BlocBuilder<CctvDiyCubit, CctvDiyState>(
+                      bloc: CctvDiyCubit()..getCcTv(),
+                      builder: (context, state) {
+                        return state.when(
+                          initial: () => const BuildLoadingWidget(),
+                          loading: () => const BuildLoadingWidget(),
+                          error: (error) => Center(
+                            child: Text(
+                              error,
+                              style: TextStyle(color: white),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 3,
-                            child: Chewie(controller: chewieController!),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+                          success: (cctvData) => cctvData.data == null
+                              ? SizedBox()
+                              : Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 300,
+                                      child: ListView.builder(
+                                        itemCount: cctvData.data!.length,
+                                        itemBuilder: (context, index) => Text(
+                                          '${cctvData.data![index].links!.self}',
+                                          style: TextStyle(color: white),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height /
+                                              3,
+                                      child:
+                                          Chewie(controller: chewieController!),
+                                    ),
+                                  ],
+                                ),
+                        );
+                      },
+                    ), */
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 3,
+                child: Chewie(controller: chewieController!),
+              ),
+            ],
+          ),
         ))));
   }
 }

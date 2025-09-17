@@ -1,4 +1,6 @@
-import 'package:chucker_flutter/chucker_flutter.dart';
+import 'package:alice/alice.dart';
+import 'package:alice/core/alice_dio.dart';
+import 'package:alice/model/alice_configuration.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_movie_app/common/bloc/blocs/cubits/cast/cast_cubit.dart';
@@ -14,12 +16,17 @@ import 'package:flutter_movie_app/core/rest/rest_config.dart';
 import 'package:flutter_movie_app/core/rest/rest_contract.dart';
 import 'package:flutter_movie_app/features/bloc/cctv_data/cctv_diy_cubit.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+
+final getit = GetIt.instance;
 
 class Deps {
-  final getit = GetIt.instance;
   late RestConfig _restApi;
   late Dio _dio;
+  Alice alice = Alice(
+      configuration: AliceConfiguration(
+    showNotification: true,
+  ));
+  AliceDioAdapter aliceDioAdapter = AliceDioAdapter();
 
   Deps.init() {
     _initDependencies();
@@ -27,31 +34,24 @@ class Deps {
 
   Future<void> _initDependencies() async {
     if (!kIsWeb) {
-      getit.registerSingleton<ChuckerDioInterceptor>(ChuckerDioInterceptor());
+      getit.registerSingleton<Alice>(alice);
+      alice.addAdapter(aliceDioAdapter);
     }
 
     _dio = Dio(RestConfig.options());
-    List<Interceptor> interuptors = [];
+    List<Interceptor> interceptors = [];
     if (kDebugMode) {
-      interuptors.add(
-        PrettyDioLogger(
-          requestHeader: true,
+      _dio.interceptors
+        ..add(aliceDioAdapter)
+        ..add(LogInterceptor(
           requestBody: true,
           responseBody: true,
-          responseHeader: false,
-          error: true,
-          compact: true,
-          maxWidth: 180,
-        ),
-      );
+          requestHeader: true,
+        ));
     }
-    interuptors.add(NetworkInterceptor());
+    interceptors.add(NetworkInterceptor());
+    _dio.interceptors.addAll(interceptors);
 
-    if (!kIsWeb) {
-      interuptors.add(GetIt.instance<ChuckerDioInterceptor>());
-    }
-
-    _dio.interceptors.addAll(interuptors);
     _restApi = RestConfig(_dio);
     getit.registerSingleton<RestConfig>(_restApi);
     getit.registerSingleton<RestContract>(RestContract());
